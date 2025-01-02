@@ -20,7 +20,7 @@ export function AppSidebar() {
   
     return (
       <Sidebar >
-        <SidebarContent className='bg-slate-950'>
+        <SidebarContent className='bg-zinc-900'>
           <SidebarGroup>
           <SidebarGroupLabel className="text-white text-lg font-black">Portfolio</SidebarGroupLabel>
           <SidebarGroupContent>
@@ -42,7 +42,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
           </SidebarGroup >
         </SidebarContent>
-        <SidebarFooter className='bg-slate-950'/>
+        <SidebarFooter className='bg-zinc-900'/>
       </Sidebar>
     )
   }

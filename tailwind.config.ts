@@ -65,7 +65,12 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		margin:{
+			'1/3': '33.3333vw', // 화면 넓이의 1/3
+			'1/4':'25vw',
+			'1/10':'10vw'
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],

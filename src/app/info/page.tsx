@@ -16,11 +16,12 @@ export default function Info(){
     }     
     return(
         <div className='flex flex-col ml-20'>
-            <div>
-                <h2 className='mb-10 text-3xl font-black text-white'>Info.</h2>
+
+            <div className='relative'>
+                <h2 className='ml-1/10 mb-10 text-5xl font-black text-white'>Info.</h2>
             </div>
             <div className='flex flex-row'>
-                <div className="flex-1">
+                <div className="flex flex-1 justify-center">
                     <Card className='w-48'>
                     <CardContent className='flex justify-center'>
                         <Image className="mt-5 " src="/assets/ppwardIDphoto.jpeg" width={IDPhoto.width} height={IDPhoto.height} alt='' ></Image>
@@ -31,7 +32,10 @@ export default function Info(){
                     </CardHeader>
                     </Card> 
                 </div>
-                <div className=" flex-1 ">
+                <div className="flex flex-1  flex-col">
+                    <h2>인포메이션 들어갈 정보들</h2>
+                    <h2 className='text-white'>선문대학교 컴퓨터공학부 졸업 2025.02</h2>
+                    
                     <h2 className='text-white'>2000.12.24</h2>
                     <li className='text-white'>frontend-Developer</li>
                     <li className='text-white'>backend-Developer</li>
