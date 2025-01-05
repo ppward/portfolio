@@ -4,12 +4,12 @@ import { title } from "process";
 export const sideItem = [
     {
         title: "Home",
-        url:"#",
+        url:"/",
         icon:ContactRound,
         textColor: "#FFFFFF"
     },{
         title:"Projects",
-        url:"#",
+        url:"projects",
         icon:BookOpen,
         textColor: "#FFFFFF"
     }

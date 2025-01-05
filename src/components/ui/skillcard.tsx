@@ -15,7 +15,7 @@ export function SkillCard(skillInfo:skillProps){
         // console.log(`${target}은 배열에 포함되어 있습니다.`);
         return(
             <div className={combineStyle}>
-                <div className="flex w-[100px] h-[100px] bg-white justify-center items-ceter rounded-3xl">
+                <div className="flex w-[100px] h-[100px] bg-white justify-center items-center rounded-3xl">
                 <Image 
                 src={skillInfo.image}
                 width={80}

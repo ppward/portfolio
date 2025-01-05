@@ -14,6 +14,7 @@ export default function Info(){
         width: standardWidth,
         height: standardWidth*1.34
     }     
+    //스크롤시 이력서 사진이 오른쪽에서 왼쪽으로 옮겨지며 나오는 설명 페이지//front
     return(
         <div className='flex flex-col ml-20'>
 
