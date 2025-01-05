@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { SkillCard } from '@/components/ui/skillcard'
 
 export default function Skill(){
@@ -33,7 +32,6 @@ export default function Skill(){
         {name:"Flask",url:"/assets/skills/Flask-Light.svg"},
         {name:"Firebase",url:"/assets/skills/Firebase-Light.svg"},
         {name:"ExpressJS",url:"/assets/skills/ExpressJS-Light.svg"},
-
     ];
     const tool = [
         {name:"Git",url:"/assets/skills/Git.svg"},

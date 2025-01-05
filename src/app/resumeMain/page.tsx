@@ -1,4 +1,5 @@
-import Image from 'next/image'
+"use client";
+import { TypeAnimation } from 'react-type-animation';
 
 export default function ResumeMain(){
 //프론트 페이지 효과 스크롤 시 나타나는 효과 추가 
@@ -13,9 +14,26 @@ export default function ResumeMain(){
 
             </div>
             <div className='flex-1 justify-center'>
-                <h2 className="flex justify-center text-white mt-20 text-2xl font-black">
-                    다양한 분야에서 성장하는 풀스택 개발자 박기표입니다!
-                </h2>
+                <div className="flex justify-center text-white mt-20 text-lg font-black">
+                <TypeAnimation
+                sequence={[
+                    '다양한 분야에서', 
+                    1000, 
+                    '다양한 분야에서 성장하는', 
+                    1000, 
+                    '다양한 분야에서 성장하는 풀스택 개발자 박기표입니다!', 
+                    2000, 
+                    () => {
+                      console.log('Sequence completed');
+                    },
+                  ]}
+                  wrapper="span"
+                  cursor={true}
+                  repeat={Infinity}
+                  style={{ fontSize: '2em', display: 'inline-block' }}
+                />
+                </div>
+            
             </div>
         </div>
     )
