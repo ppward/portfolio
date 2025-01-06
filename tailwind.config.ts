@@ -70,7 +70,14 @@ export default {
 			'1/3': '33.3333vw', // 화면 넓이의 1/3
 			'1/4':'25vw',
 			'1/10':'10vw'
-		}
+		},
+		zIndex: {
+			'-1': '-1', // 음수 z-index 추가
+			'-10': '-10', // 더 낮은 음수 값 추가
+		},
+		maskImage: {
+			gradient: 'linear-gradient(-20deg, transparent 50%, white)',
+		},
   	}
   },
   plugins: [require("tailwindcss-animate")],
