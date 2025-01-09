@@ -6,8 +6,8 @@ import Skill from "./skill/page";
 import Footer from "@/components/layer/footer";
 export default function Home() {
   return (
-    <div className="w-screen h-screen bg-zinc-800 overflow-auto">
-      <Header/>
+    <div className="w-screen h-screen bg-zinc-900 overflow-auto">
+      {/* <Header/> */}
       <ResumeMain/>
       <Info/>
       <Skill/>

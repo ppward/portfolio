@@ -39,6 +39,4 @@ export function SkillCard(skillInfo:skillProps){
             </div>
             )
       }
-    
-    
 }

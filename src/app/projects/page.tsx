@@ -1,3 +1,6 @@
+"use client"
+import { useState } from "react";
+import { motion } from "motion/react"
 import Gridbackground from "@/components/layer/gridbackground";
 import ProjectCard from "@/components/ui/projectcard";
 
@@ -8,10 +11,10 @@ export default function Projects(){
             url:"/assets/projects/insol.png"
         },
     ]
-
+    const [box1Width, setBox1Width] = useState(300);
     return(
         <div className="flex flex-col flex-1 bg-zinc-900 w-screen h-screen z-[-10]">
-        <Gridbackground/>
+            <Gridbackground/>
 
             <div className="w-72">
                 <h2 className="flex text-white font-black text-4xl ml-10 mt-10 border-b-4 border-white">
@@ -24,10 +27,8 @@ export default function Projects(){
                 ))}
                 
             </div>
-            <div>
-
-      
-
+            <div className="relative h-screen w-screen flex flex-col">
+           
             </div>
         </div>
     );
