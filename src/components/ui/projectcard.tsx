@@ -6,13 +6,27 @@ import { ClipboardList } from "lucide-react";
 interface projectInfo {
  classname?:string,
  name:string,
- url:string
+ url:string,
+ index:number
 }
 
 export default  function ProjectCard(info: projectInfo){
-    const baseStyle= "rounded-t-xl"
+    
+    const baseStyle= "absolute left-[calc(50%-12rem-200px)] "
+    const evenNumStyle = "absolute left-[calc(50%+12rem)] "
     return (
-        <Card>
+        <div className="relative flex w-full h-[170px]">
+           <svg className="absolute inset-0 w-full h-full">
+            {info.index%2==1?(
+                    <line x1="50%" y1="50%" x2="calc(50% + 12rem)" y2="50%" stroke="white" stroke-width="2" />
+                ):(
+                    <line x1="calc(50% - 12rem)" y1="50%" x2="50%" y2="50%" stroke="white" stroke-width="2" />
+                )
+            }
+            </svg>
+        
+        <div className={info.index%2==1?evenNumStyle:baseStyle}>
+        <Card className="w-[200px]">
             <CardContent className="p-0">
             <Image
             className="rounded-t-xl"
@@ -30,5 +44,7 @@ export default  function ProjectCard(info: projectInfo){
                 
             </CardHeader>
         </Card>
+        </div>
+        </div>
     )
 }

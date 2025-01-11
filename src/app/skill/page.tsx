@@ -52,7 +52,7 @@ export default function Skill(){
     return(
         <div className='ml-20 mr-10' >
             <div>
-                <h2 className="ml-1/10 text-white text-5xl font-black mt-48">SKILL.</h2>
+                <h2 className="mt-20 ml-1/10 text-white text-5xl font-black ">SKILL.</h2>
             </div>
             <div className="flex flex-row justify-around">
                 <div className="flex flex-col items-center">

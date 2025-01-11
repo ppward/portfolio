@@ -78,6 +78,10 @@ export default {
 		maskImage: {
 			gradient: 'linear-gradient(-20deg, transparent 50%, white)',
 		},
+		width:{
+			'remain': 'calc(100% - 16rem)',
+			'half': 'calc(100%/2)',
+		},
   	}
   },
   plugins: [require("tailwindcss-animate")],
