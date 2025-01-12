@@ -70,8 +70,8 @@ export default function Info(){
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              duration: 2,
-              delay: 1.5,
+              duration: 0.8,
+              delay: 2,
                 scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
             }}
             style={{
@@ -87,8 +87,8 @@ export default function Info(){
             initial={{  opacity: 0, scale: 0 }}
             animate={{   opacity: 1, scale: 1 }}
             transition={{
-                duration: 2,
-                delay: 1.5,
+                duration: 0.8,
+                delay: 2,
                 scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
             }}
             style={{

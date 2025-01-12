@@ -7,7 +7,23 @@ import ProjectCard from "@/components/ui/projectcard";
 export default function Projects(){
     const projects=[
         {
-            name:"insol",
+            name:"Satellite-A",
+            url:"/assets/projects/satelliteA.png"
+        },
+        {
+            name:"Green Auction",
+            url:"/assets/projects/insol.png"
+        },
+        {
+            name:"OneT",
+            url:"/assets/projects/insol.png"
+        },
+        {
+            name:"MIML",
+            url:"/assets/projects/insol.png"
+        },
+        {
+            name:"PetTail",
             url:"/assets/projects/insol.png"
         },
         {
@@ -15,26 +31,28 @@ export default function Projects(){
             url:"/assets/projects/insol.png"
         },
         {
-            name:"insol",
+            name:"?Wbin",
             url:"/assets/projects/insol.png"
         },
     ]
+
     const [box1Width, setBox1Width] = useState(300);
     return(
-        <div className="relative flex flex-col flex-1 bg-zinc-900 w-screen h-screen z-[-10] overflow-hidden">
+        <div className="relative flex flex-col flex-1 bg-zinc-900 w-screen h-screen overflow-y-scroll">
             <Gridbackground/>
-            <div className="absolute w-half h-screen border-r-8 border-white"></div>
-            <div className="w-72 ">
-                <h2 className="flex text-white font-black text-4xl ml-10 mt-10 border-b-4 border-white">
+                <svg className="absolute w-full h-[200vh]">
+                <line x1="50%" y1="0" x2="50%" y2="100%" stroke="white" strokeWidth="8" />
+                </svg>
+            <div className="w-80 z-10">
+                <h2 className="flex text-white font-black text-4xl m-10 border-b-4 border-white">
                     프로젝트 페이지.
                 </h2>
             </div>
-            <div className="flex flex-col mt-10  z-10">
+            <div className="flex flex-col mt-10 z-10">
                 {projects.map((key, idx)=>(
                     <ProjectCard name={key.name} url={key.url} index={idx} />
                 ))}
             </div>
-
         </div>
     );
 };
