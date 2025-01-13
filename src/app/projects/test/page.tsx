@@ -34,6 +34,7 @@ export default function ScrollAnimation() {
 
   return (
     <div className="w-screen h-[200vh] bg-gray-100">
+  
       <div className="sticky w-full top-20 flex  h-[500px]">
         {/* 첫 번째 이미지 */}
         <motion.div

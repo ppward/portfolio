@@ -7,7 +7,7 @@ interface skillProps{
     image:string
 };
 
-export function SkillCard(skillInfo:skillProps){
+export default function SkillCard(skillInfo:skillProps){
     const baseStyle = "text-white text-center font-black";
     const combineStyle = classNames(baseStyle, skillInfo.className);
     const customList:string[] = ["SpringBoot"];

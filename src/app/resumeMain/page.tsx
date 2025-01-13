@@ -6,7 +6,7 @@ import { SidebarTrigger } from '@/components/ui/sidebar';
 export default function ResumeMain(){
 
     //프론트 페이지 효과 스크롤 시 나타나는 효과 추가 
-// 일단 자기소개를 타이핑 효과로 나타나게 하는 훅 추가하고 로테이션 
+    // 일단 자기소개를 타이핑 효과로 나타나게 하는 훅 추가하고 로테이션 
 
     return(
         <div className='relative flex flex-col h-screen content-center'>   
