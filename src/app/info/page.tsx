@@ -132,21 +132,26 @@ export default function Info(){
                     delay: 1.5, // 1초 후에 애니메이션 시작
                     // ease: "easeInOut", // 속도 변화
                   }}
-                >
+                > 
+                  <div className="flex flex-col">
                     <div className="flex flex-row justify-center">
                     <div className="flex flex-1 flex-col">
-                        <h2>인포메이션 들어갈 정보들</h2>
+                        <h1 className="text-white text-xl  font-black "># 나의 장점</h1>
                         <h2 className='text-white'>선문대학교 컴퓨터공학부 졸업 2025.02</h2>      
                         <h2 className='text-white'>2000.12.24</h2>
                         <li className='text-white'>frontend-Developer</li>
                         <li className='text-white'>backend-Developer</li>
                     </div>
                     <div className="flex flex-1 flex-col">
-                        <h2 className='text-white'>
-                            adsf
+                        <h2 className='text-white text-xl font-black '>
+                            # 태그
                         </h2>
                     </div>
                     </div>
+                    <div className="pt-5">
+                      <h2 className="text-xl text-white font-black"># 추가</h2>
+                    </div>
+                  </div>
                 </motion.div>
             </div>
          

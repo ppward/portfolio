@@ -6,14 +6,6 @@ interface SkillProps {
 }
 const Dock = (props:SkillProps) => {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
-
-  // const items = [
-  //   { id: 1, name: "Notion", img: "https://cdn.prod.website-files.com/6728a3e6f4f4161c235bc519/6728a6be92ee5ddf0080fb90_notion.png" },
-  //   { id: 2, name: "Asana", img: "https://cdn.prod.website-files.com/6728a3e6f4f4161c235bc519/6728a6bef9d004f8a9cf3b29_asana.png" },
-  //   { id: 3, name: "Slack", img: "https://cdn.prod.website-files.com/6728a3e6f4f4161c235bc519/6728a6be8c099d4e1ed55770_slack.png" },
-  //   { id: 4, name: "Spotify", img: "https://cdn.prod.website-files.com/6728a3e6f4f4161c235bc519/6728a6bea97e140677496dae_spotify.png" },
-  //   { id: 5, name: "Figma", img: "https://cdn.prod.website-files.com/6728a3e6f4f4161c235bc519/6728a6be1de916069b5e1aaa_figma.png" },
-  // ];
   const items =[
     { id: 1, name: "language", img: "/assets/dock/code.png" },
     { id: 2, name: "framework", img: "/assets/dock/setting.png" },

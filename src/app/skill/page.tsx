@@ -4,7 +4,7 @@ import Dock from '@/components/ui/dock';
 import ToggleSwitch from '@/components/ui/togglebutton';
 import SkillList from './skillList';
 import {language, framework, server, tool, environment} from '@/type/skills';
-
+import SkillCard from '@/components/ui/skillcard';
 const dataMap = {
     language:language,
     framework:framework,
@@ -50,12 +50,17 @@ export default function Skill(){
             )
             }
             {getSkills&& (
-                <div className="flex w-full">
+                <div className='flex flex-col'>
+                <h2 className="mt-12 ml-12 text-2xl text-white font-black">{getSkills}</h2>
+                <div className="flex w-full grid grid-cols-4">
                     {
                         currentSkillset.map((item, idx)=>(
-                            <h2 key={idx}>{item.name}</h2>
+                            <div className='flex mt-20 justify-center items-center' key={idx}>
+                              <SkillCard name={item.name} image={item.url}/>
+                            </div>
                         ))
                     }
+                </div>
                 </div>
             )}
         </div>

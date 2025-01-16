@@ -11,20 +11,20 @@ export default function Projects(){
             url:"/assets/projects/satelliteA.png"
         },
         {
-            name:"Green Auction",
-            url:"/assets/projects/insol.png"
+            name:"Plantify",
+            url:"/assets/projects/plantify.png"
         },
         {
             name:"OneT",
-            url:"/assets/projects/insol.png"
+            url:"/assets/projects/onet.png"
         },
         {
             name:"MIML",
-            url:"/assets/projects/insol.png"
+            url:"/assets/projects/miml.png"
         },
         {
             name:"PetTail",
-            url:"/assets/projects/insol.png"
+            url:"/assets/projects/pettail.png"
         },
         {
             name:"insol",
@@ -32,7 +32,7 @@ export default function Projects(){
         },
         {
             name:"?Wbin",
-            url:"/assets/projects/insol.png"
+            url:"/assets/projects/wbin.png"
         },
     ]
 
@@ -50,7 +50,7 @@ export default function Projects(){
             </div>
             <div className="flex flex-col mt-10 z-10">
                 {projects.map((key, idx)=>(
-                    <ProjectCard name={key.name} url={key.url} index={idx} />
+                    <ProjectCard name={key.name} url={key.url} index={idx} key={idx} />
                 ))}
             </div>
         </div>
