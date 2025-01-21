@@ -10,6 +10,9 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 import { motion } from "motion/react"
+import DivideLine from "@/components/ui/divideline";
+import { Dock, Mail, Phone } from "lucide-react";
+import IconCircle from "@/components/ui/iconcircle";
 
   const standardWidth = 150;
   const IDPhoto = {
@@ -61,105 +64,52 @@ export default function Info(){
       }, [isVisible]);
 
     return(
-        <div className='flex flex-col ml-20 overflow-hidden'>
-            <div className='relative z-10'>
-                <h2 className='ml-1/10 mb-10 text-5xl font-black text-white'>Info.</h2>
-            </div>
-            <div className='sticky flex flex-row  h-[500px]' ref={infoViewRef}>
-            <motion.div className="absolute"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.8,
-              delay: 2,
-                scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
-            }}
-            style={{
-                top: "-52px",
-                width: 400,
-                height: 400,
-                backgroundColor: "#27272a",
-                borderRadius: "50%",
-            }}
-            />
-              <motion.div 
-              className="absolute"
-            initial={{  opacity: 0, scale: 0 }}
-            animate={{   opacity: 1, scale: 1 }}
-            transition={{
-                duration: 0.8,
-                delay: 2,
-                scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
-            }}
-            style={{
-                width: 240,
-                height: 240,
-                top: "-120px",
-                left:"60%",
-                backgroundColor: "#27272a",
-                borderRadius: "50%",
-            }}
-            />
-                <motion.div className="absolute" 
-                variants={firstImageVariants}
-                initial="initial"
-                animate={isVisible ==true ? "scrolled" : "initial"}
-                transition={{
-                    duration: 0.5, // 애니메이션 지속 시간 (초)
-                    delay: 0.5, // 1초 후에 애니메이션 시작
-                    // ease: "easeInOut", // 속도 변화
-                  }}
-                >
-                    <div className="flex justify-center">
-                    <Card className='w-48'>
-                    <CardContent className='flex justify-center'>
-                        <Image className="mt-5 " src="/assets/ppwardIDphoto.jpeg" width={IDPhoto.width} height={IDPhoto.height} alt='' ></Image>
-                    </CardContent>
-                    <CardHeader>
-                        <CardTitle className='text-l'>박기표</CardTitle>
-                        <CardDescription>신입 개발자</CardDescription>
-                    </CardHeader>
-                    </Card> 
-                    </div>
-                </motion.div>
-                <motion.div
-                className="absolute"
-                variants={secondImageVariants}
-                initial="initial"
-                animate={isVisible == true ? "scrolled" : "initial"}
-                transition={{
-                    duration: 0.5, // 애니메이션 지속 시간 (초)
-                    delay: 1.5, // 1초 후에 애니메이션 시작
-                    // ease: "easeInOut", // 속도 변화
-                  }}
-                > 
-                  <div className="flex flex-col">
-                    <div className="flex flex-row justify-center">
-                    <div className="flex flex-1 flex-col">
-                        <h1 className="text-white text-xl  font-black "># 나의 장점</h1>
-                        <h2 className='text-white'>선문대학교 컴퓨터공학부 졸업 2025.02</h2>      
-                        <h2 className='text-white'>2000.12.24</h2>
-                        <li className='text-white'>frontend-Developer</li>
-                        <li className='text-white'>backend-Developer</li>
-                    </div>
-                    <div className="flex flex-1 flex-col">
-                        <h2 className='text-white text-xl font-black '>
-                            # 태그
-                        </h2>
-                    </div>
-                    </div>
-                    <div className="pt-5">
-                      <h2 className="text-xl text-white font-black"># 추가</h2>
-                    </div>
-                  </div>
-                </motion.div>
-            </div>
-         
-
-            
-            <div>
-
-            </div>
+      <div className='flex flex-col overflow-hidden'>
+        <div className='flex w-1/4 justify-start '>
+          <h2 className='text-5xl font-black text-white'>Info.</h2>
         </div>
+        <div className="border rounded-lg mb-3">
+          <h2 className="m-4 text-white text-xl font-black">About ME</h2>
+          <DivideLine/>
+          <h2 className="m-4 text-white">
+          약력를 작성할 때 다음과 같은 사항을 고려하여 작성해주세요.
+          </h2>
+        </div>
+
+        <div className="border rounded-lg">
+          
+          <h2 className="m-4 text-white text-xl font-black">Contact</h2>
+          <DivideLine/>
+          <div className="flex flex-row w-3/4 m-4 items-center">
+            <IconCircle>
+              <Phone/>
+            </IconCircle>
+            <DivideLine className="ml-20 h-[30px] rounded-lg"/>
+            <h2 className="ml-20 text-white text-lg">010-4830-6605</h2>
+          </div>
+          <DivideLine/>
+          <div className="flex flex-row w-3/4 m-4 items-center ">
+            <IconCircle>
+              <Mail/>
+            </IconCircle>
+            <DivideLine className="ml-20 h-[30px] rounded-lg"/>
+            <div className="flex flex-col">
+              <h2 className="ml-20 text-white text-lg">xhtjstod1224@naver.com</h2>
+              <h2 className="ml-20 text-white text-lg">xhtjstod1224@gmail.com</h2>
+            </div>
+          </div>
+          <DivideLine/>
+          <div className="flex flex-row w-3/4 m-4 items-center ">
+            <IconCircle>
+              <Dock/>
+            </IconCircle>
+            <DivideLine className="ml-20 h-[30px] rounded-lg"/>
+            <h2 className="ml-20 text-white text-lg">https://github.com/ppward</h2>
+          </div>
+              
+        </div>
+              
+      </div>
+        
     )
 }

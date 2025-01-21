@@ -3,7 +3,7 @@ import {useState} from "react"
 import Image from "next/image"
 import { Card, CardContent, CardHeader } from "./card"
 import classNames from 'classnames';
-import { ClipboardList } from "lucide-react";
+import { ClipboardList, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface projectInfo {
@@ -47,7 +47,7 @@ export default  function ProjectCard(info: projectInfo){
                 </CardContent>
                 <CardHeader className="pt-2 pl-2 ">
                     <div className="flex flex-row items-center">
-                        <ClipboardList className="w-6 h-6 mr-2"/>
+                        <FileText className="w-6 h-6 mr-2"/>
                         <h2 className="font-black text-l">{info.name}</h2>
                     </div>
                     

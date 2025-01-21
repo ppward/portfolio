@@ -3,6 +3,10 @@ import { useState } from "react";
 import { motion } from "motion/react"
 import Gridbackground from "@/components/layer/gridbackground";
 import ProjectCard from "@/components/ui/projectcard";
+import Image from "next/image"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { ClipboardList,FileText } from "lucide-react";
+import DivideLine from "@/components/ui/divideline";
 
 export default function Projects(){
     const projects=[
@@ -38,20 +42,36 @@ export default function Projects(){
 
     const [box1Width, setBox1Width] = useState(300);
     return(
-        <div className="relative flex flex-col flex-1 bg-zinc-900 w-screen h-screen overflow-y-scroll">
-            <Gridbackground/>
-                <svg className="absolute w-full h-[200vh]">
-                <line x1="50%" y1="0" x2="50%" y2="100%" stroke="white" strokeWidth="8" />
-                </svg>
-            <div className="w-80 z-10">
-                <h2 className="flex text-white font-black text-4xl m-10 border-b-4 border-white">
-                    프로젝트 페이지.
-                </h2>
+        <div className='mt-20' >
+            <div className='flex w-1/4 justify-start '>
+                <h2 className='text-5xl font-black text-white'>Projects.</h2>
             </div>
-            <div className="flex flex-col mt-10 z-10">
-                {projects.map((key, idx)=>(
-                    <ProjectCard name={key.name} url={key.url} index={idx} key={idx} />
-                ))}
+            <div className="mt-2 flex flex-col border rounded-lg">
+                <h2 className="m-4 text-white text-xl font-bold ">프로젝트</h2>
+                <DivideLine className="mb-3"/>
+                <div className="grid grid-cols-3 gap-4 place-items-center">
+                    {projects.map((key, idx)=>(
+                        <div key={idx}>
+                        <Card className="w-[250px] cursor-pointer" >
+                            <CardContent className="p-0">
+                            <Image
+                            className="w-[250px] h-[120px] rounded-t-xl object-cover"
+                                src={key.url}
+                                width={200}
+                                height={50}
+                                alt=""
+                                />
+                            </CardContent>
+                            <CardHeader className="pt-2 pl-2">
+                                <div className="flex flex-row items-center">
+                                    <FileText className="w-6 h-6 mr-2" />
+                                    <h2 className=" font-black text-l">{key.name}</h2>
+                                </div>
+                            </CardHeader>
+                        </Card>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );

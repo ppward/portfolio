@@ -14,29 +14,26 @@ export default function SkillCard(skillInfo:skillProps){
     if (customList.includes(skillInfo.name)) {
         // console.log(`${target}은 배열에 포함되어 있습니다.`);
         return(
-            <div className={combineStyle}>
-                <div className="flex w-[100px] h-[100px] bg-white justify-center items-center rounded-3xl">
+            <div className="flex flex-col justify-center items-center w-full h-[80px] rounded-md  ">
+                <div className="flex w-[50px] h-[50px] bg-white justify-center items-center rounded-xl">
                 <Image 
                 src={skillInfo.image}
-                width={80}
-                height={80}
+                width={40}
+                height={40}
                 alt={skillInfo.name}
                 />
                 </div>
-                {skillInfo.name}
+                <h2 className="text-white text-center font-black">{skillInfo.name}</h2>
             </div>
         )
     } else {
         return (
-            <div className={combineStyle}>
-                <Image 
-                src={skillInfo.image}
-                width={100}
-                height={100}
-                alt={skillInfo.name}
-                />
-                {skillInfo.name}
-            </div>
+            
+            <div className="flex flex-col items-center justify-center w-full h-[80px] m-2 rounded-md ">
+            <Image src={skillInfo.image} width={50} height={50} alt={skillInfo.name} />
+            <h2 className="text-white text-center font-black">{skillInfo.name}</h2>
+          </div>
+          
             )
       }
 }
