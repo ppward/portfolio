@@ -6,7 +6,7 @@ import Skill from "./skill/page";
 
 export default function Home() {
   return (
-    <div className="w-screen h-screen bg-slate-950 overflow-auto">
+    <div >
       <Header/>
       <ResumeMain/>
       <Info/>
