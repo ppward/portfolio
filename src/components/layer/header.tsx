@@ -1,35 +1,85 @@
-import { motion } from "motion/react"
+"use client"
+import { useState } from "react"
+import Image from "next/image";
+import {easeOut, motion} from "motion/react"
+import NavList from "../ui/navlist";
+import { delay } from "motion";
+const standardWidth = 150;
+const IDPhoto = {
+    width: standardWidth,
+    height: standardWidth*1.34
+}     
 export default function Header(){
-    return( 
-        <div className="flex w-full">
-            {/*나중에 Link 태그로 변경하기*/}
-            <a className="sticky" style={{top:30, left:30}}>
-                <div className="w-4 h-4 ">
-                    <h1 className="font-paperlogy font-black text-3xl">P.</h1>    
-                </div>
-            </a>
-            <a>
-                <motion.div>
-                    About
-                </motion.div>  
-            </a>
-            <a>
-                <motion.div>
-                    About
-                </motion.div>  
-            </a>
-            <a>
-                <motion.div>
-                    About
-                </motion.div>  
-            </a>
-           
+    const [isHover, setIsHover] = useState(false);
+// 이펙트 효과 예제 
+const text = "GIPYO PARK";
+const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15, // 각 글자마다 지연 효과
+        // repeat: Infinity, // 무한 반복
+        // repeatType: "reverse" as "reverse", // 애니메이션 방향을 반대로 반복
+         duration: 2, // 전체 애니메이션 지속 시간
+        //  repeatDelay: 4, // 애니메이션 종료 후 대기 시간 (1초)
+      },
+    },
+  };
 
-            {/* <h1 className="font-paperlogy text-2xl font-thin">Thin 폰트</h1>
-            <h1 className="font-paperlogy text-2xl font-extralight">ExtraLight 폰트</h1>
-            <h1 className="font-paperlogy text-2xl font-regular">Regular 폰트</h1>
-            <h1 className="font-paperlogy text-2xl font-bold">Bold 폰트</h1>
-            <h1 className="font-paperlogy text-2xl font-black">Black 폰트</h1> */}
+  const child = {
+    hidden: { y: "100%" }, // 아래에서 시작
+    visible: {
+      y: "0%", // 제자리로 올라옴
+      transition: {
+        type: "spring",
+        repeat: Infinity, // 무한 반복
+        damping: 10,
+        stiffness: 100,
+        ease: "easeInOut",
+        duration: 2, // 전체 애니메이션 지속 시간
+        repeatDelay: 5, // 애니메이션 종료 후 대기 시간 (1초)
+      },
+      
+    },
+  };
+  //
+    return( 
+        <div className="relative w-screen h-screen p-8 overflow-hidden">
+            {/*나중에 Link 태그로 변경하기*/}
+            <div className="flex flex-col w-full h-full">
+                <div className="flex flex-row flex-1 w-full h-full" >
+                    <div className="flex flex-col justify-center items-center w-full h-full">
+                        <nav className="w-[calc(95%)] pl-28">
+                        <NavList/>
+                        </nav>
+                    </div>
+                    <div className="flex flex-col flex-initial w-[62%] items-start justify-center">
+                        <Image className="rounded-lg" src={"/assets/stepup.jpg"} width={300} height={300} alt="스텝업"/>
+                        <p className="font-bold text-3xl pt-8">
+                         매일매일 확실하게<br/> 한 발자국 더<br/> 나아가는 개발자, 박기표입니다.
+                        </p>
+                    </div>
+                </div>
+                <div className="flex justify-end items-end h-[200px]">
+                    {/* <h1 className=" text-blue-600  tracking-tight " style={{maxHeight:"100%", fontWeight:900, fontSize:190}}>GIPYO PARK</h1>     */}
+                    <motion.h1
+                            className="flex text-blue-600 tracking-tight "
+                            variants={container}
+                            initial="hidden"
+                            animate="visible"
+                            style={{maxHeight:"100%", fontWeight:900, fontSize:190}}
+                            >
+                            {text.split("").map((char, index) => (
+                                <motion.span key={index} variants={child}>
+                                {char === " " ? "\u00A0" : char} {/* 공백 문자 처리 */}
+                                </motion.span>
+                            ))}
+                            </motion.h1>
+                </div>
+                
+            </div>
+            
     </div>
     )
 }

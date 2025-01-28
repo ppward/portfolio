@@ -15,8 +15,8 @@ export default function Info(){
         height: standardWidth*1.34
     }     
     return(
-        <div >
-         
+        <div className="flex justify-center items-center border-2" style={{width:IDPhoto.width*1.2, height:IDPhoto.height*1.5}}>
+        <Image src={"/assets/ppwardIDphoto.jpeg"} width={IDPhoto.width} height={IDPhoto.height} alt="증명사진"/>
         </div>
     )
 }

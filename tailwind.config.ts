@@ -12,6 +12,12 @@ export default {
 		fontFamily:{
 			paperlogy: ["Paperlogy"],
 		},
+		width:{
+			intro: "calc(95vw)"
+		},
+		height:{
+			intro:"calc(95vh)"
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
