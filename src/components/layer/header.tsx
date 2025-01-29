@@ -13,16 +13,22 @@ export default function Header(){
     const [isHover, setIsHover] = useState(false);
 // 이펙트 효과 예제 
 const text = "GIPYO PARK";
+// 개별 글자의 애니메이션 시간
+const letterDuration = 0.6;
+// staggerChildren에 의해 추가될 총 딜레이 계산
+const totalStaggerTime = text.length * 0.15;
+// 전체 애니메이션 길이 계산 (글자 애니메이션 + stagger 딜레이)
+const totalAnimationTime = letterDuration + totalStaggerTime; 
 const container = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15, // 각 글자마다 지연 효과
-        // repeat: Infinity, // 무한 반복
-        // repeatType: "reverse" as "reverse", // 애니메이션 방향을 반대로 반복
-         duration: 2, // 전체 애니메이션 지속 시간
-        //  repeatDelay: 4, // 애니메이션 종료 후 대기 시간 (1초)
+        staggerChildren: 0.15, // 각 글자 애니메이션 순차적 실행
+        repeat: Infinity, // 무한 반복
+        repeatType: "loop" as "loop", // 반복 방식 설정
+        duration: totalAnimationTime, // 한 번의 애니메이션 지속 시간
+        repeatDelay: 9, // 반복 간 딜레이 (4초)
       },
     },
   };
@@ -34,11 +40,11 @@ const container = {
       transition: {
         type: "spring",
         repeat: Infinity, // 무한 반복
+        repeatDelay: 10, // 반복 간 딜레이 (4초)
         damping: 10,
         stiffness: 100,
         ease: "easeInOut",
-        duration: 2, // 전체 애니메이션 지속 시간
-        repeatDelay: 5, // 애니메이션 종료 후 대기 시간 (1초)
+        duration: letterDuration, // 전체 애니메이션 지속 시간
       },
       
     },
