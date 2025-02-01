@@ -56,10 +56,10 @@ export default function Header(){
                       <NavList/>
                       </nav>
                   </div>
-                  <div className="flex flex-col flex-initial w-[62%] items-start justify-center">
-                    <Image className="rounded-lg" src={"/assets/stepup.jpg"} width={300} height={300} alt="스텝업"/>
+                  <div className="flex flex-1 flex-col flex-initial w-[62%] items-start justify-center">
+                    <Image className="rounded-lg" src={"/assets/stepup.jpg"} width={380} height={380} alt="스텝업"/>
                     <p className="font-bold text-3xl pt-8">
-                      매일매일 확실하게<br/> 한 발자국 더<br/> 나아가는 개발자, 박기표입니다.
+                      <span className="underline decoration-[4px] decoration-wavy decoration-blue-500">매일매일</span> 확실하게<br/> 한 발자국 더<br/> 나아가는 개발자, <span style={{color:"#2563EB", textEmphasis: "dot"}}>박기표</span>입니다.
                     </p>
                   </div>
               </div>
