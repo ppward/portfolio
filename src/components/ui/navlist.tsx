@@ -22,7 +22,7 @@ export default function NavList(){
         {/* a태그  Link 태그로 변경하기*/}
         {list.map((item, idx)=>(
             <a className="relative block m-2 " key={idx}>
-            <motion.div className="relative flex items-center  h-22"
+            <motion.div className="relative flex items-center h-20"
             onHoverStart={() => setIsHover({ idx })} // Hover 시작 시 해당 인덱스를 저장
             onHoverEnd={() => setIsHover({ idx: null })} // Hover 종료 시 초기화
             >
@@ -49,10 +49,10 @@ function Subtitle({idx, hover, subtitle}:CurrentHover){
     return (
         <motion.h1
           id="sub-title"
-          className="relative font-bold text-7xl pl-11 z-10"
+          className="relative font-bold text-7xl pl-11 z-10 font-paperlogy"
           style={{ color:hover!==null&& hover === idx ? "#FFFFFF" : "#000000" }}
           initial={{ scale: 0 }}
-          animate={{ scale: hover !== null && hover === idx ? 1.4 : 1 }}
+          animate={{ scale: hover !== null && hover === idx ? 1.1 : 1 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
         >
           {subtitle}
