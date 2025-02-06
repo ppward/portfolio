@@ -48,21 +48,24 @@ export default function Header(){
 
     return( 
         <div className="relative w-screen h-screen p-8 overflow-hidden">
-            {/*나중에 Link 태그로 변경하기*/}
+            
           <div className="flex flex-col w-full h-full">
               <div className="flex flex-row flex-1 w-full h-full" >
+                  {/*sub Title 나중에 Link 태그로 변경하기*/}
                   <div className="flex flex-col justify-center items-center w-full h-full">
                       <nav className="w-[calc(95%)] pl-28">
                       <NavList/>
                       </nav>
                   </div>
+                  {/*title message*/}
                   <div className="flex flex-1 flex-col flex-initial w-[62%] items-start justify-center">
                     <Image className="rounded-lg" src={"/assets/stepup.jpg"} width={380} height={380} alt="스텝업"/>
-                    <p className="font-bold text-3xl pt-8">
+                    <p className="font-bold font-paperlogy text-3xl pt-8 leading-relaxed">
                       <span className="underline decoration-[4px] decoration-wavy decoration-blue-500">매일매일</span> 확실하게<br/> 한 발자국 더<br/> 나아가는 개발자, <span style={{color:"#2563EB", textEmphasis: "dot"}}>박기표</span>입니다.
                     </p>
                   </div>
               </div>
+              {/*Name Motion */}
               <div className="flex justify-end items-end h-[200px]">
                   <motion.h1
                     className="flex text-blue-600 tracking-tight "

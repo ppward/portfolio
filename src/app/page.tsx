@@ -22,23 +22,25 @@ export default function Home() {
       </div>
     </a>
       
-     {/* 🟢 첫 번째 섹션 (Header) - 즉각 반응하는 패럴랙스 적용 */}
+     {/* 🟢 첫 번째 섹션 (Header) 패럴랙스 적용 */}
      <Parallax speed={-10} className="relative w-full h-screen flex items-center justify-center">
           <div >
             <Header />
           </div>
         </Parallax>
 
-        {/* 🔴 두 번째 섹션 (ResumeMain) - 즉각 반응하는 패럴랙스 적용 */}
-        <Parallax speed={15} className="relative w-full h-screen">
+        {/* 🔴 두 번째 섹션 (ResumeMain) 패럴랙스 적용 */}
+        <Parallax speed={15} className="relative w-full min-h-[190vh]">
           <div >
             <ResumeMain />
           </div>
         </Parallax>
-      
-      {/* <Info/> */}
-      <Skill/>
-      <Projects/>
+
+        {/* 🟣 세 번째 섹션 (Skill) */}
+        <Skill />
+
+        {/* 🟡 네 번째  섹션 (Projects) */}
+        <Projects />
     </div>
     </ParallaxProvider>
   );

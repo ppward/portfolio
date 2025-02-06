@@ -2,8 +2,8 @@ import SkillCard from "@/components/ui/skillcard";
 import { language, framework, environment, tool, server} from "@/type/skills";
 export default function SkillLayer1(){
     return(
-    <div className="relative">
-        <div className="flex flex-1 w-full h-1/3 pl-20 items-center">
+    <div className="relative h-full">
+        <div className="flex w-full pl-20 items-center">
         <h1
             className="font-paperlogy text-9xl text-blue-600"
             style={{
@@ -11,8 +11,8 @@ export default function SkillLayer1(){
             }}
             >Skill</h1>
         </div>
-        <div className="relative flex flex-2 flex-col w-full h-2/3">
-            <div className="sticky top-0 z-10 flex flex-col w-full h-[80%]">
+        <div className="relative flex flex-col w-full h-[80%]">
+            <div className="relative mt-10 z-10 flex flex-col w-full h-full">
                 <div className="absolute top-[calc(50%-50px)] left-[calc(50%-50px)] w-[100px] h-[100px] bg-white rounded-full"/>
                 <div className="flex flex-1 flex-row justify-center">
                     <div className="w-[42%] bg-blue-600 m-2 p-4 rounded-xl grid grid-cols-4 place-items-center">

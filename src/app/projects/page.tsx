@@ -77,7 +77,7 @@ export default function Projects(){
                             </div>
                         </CardHeader>
                     </Card>
-                    <p className="w-[calc(65%-130px)] ml-20 font-paperlogy text-blue-600 text-3xl font-[700] whitespace-pre-line">{key.describe}</p>
+                    <p className="w-[calc(65%-130px)] ml-20 font-paperlogy text-black text-3xl font-[700] whitespace-pre-line">{key.describe}</p>
                     </div>
                 ))}
             </div>     
