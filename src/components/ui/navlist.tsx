@@ -7,21 +7,42 @@ interface CurrentHover {
     hover:number|null;
     subtitle?:string
 }
-
-export default function NavList(){
+interface HeaderProps {
+    sectionRefs: {
+      resume: React.RefObject<HTMLDivElement>;
+      skill: React.RefObject<HTMLDivElement>;
+      project: React.RefObject<HTMLDivElement>;
+      contact: React.RefObject<HTMLDivElement>;
+    };
+  }
+export default function NavList({sectionRefs}:HeaderProps){
     const [isHover, setIsHover] = useState<{ idx: number | null }>({ idx: null });
     const list =[
-        {title:"About"},
-        {title:"Skill"},
-        {title:"Project"},
-        {title:"Contact"},
+        {title:"About", ref:"resume"},
+        {title:"Skill", ref:"skill"},
+        {title:"Project", ref:"project"},
+        {title:"Contact", ref:"contact"},
     ]
+    const handleScrollToSection = (section: string) => {
+        if(section=="resume"){
+            const element = sectionRefs[section as keyof HeaderProps["sectionRefs"]]?.current;
+            const offset = 72; //추가 오프셋
+            const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({
+                top: elementPosition,
+                behavior: "smooth",
+            });
+        }else{
+            sectionRefs[section as keyof HeaderProps["sectionRefs"]]?.current?.scrollIntoView({
+            behavior: "smooth",
+            });
+        }
+      };
     return (
     <ul>
         <motion.li className="cursor-pointer">
-        {/* a태그  Link 태그로 변경하기*/}
         {list.map((item, idx)=>(
-            <a className="relative block m-2 " key={idx}>
+            <a className="relative block m-2 " key={idx} onClick={() => handleScrollToSection(item.ref)}>
             <motion.div className="relative flex items-center h-20"
             onHoverStart={() => setIsHover({ idx })} // Hover 시작 시 해당 인덱스를 저장
             onHoverEnd={() => setIsHover({ idx: null })} // Hover 종료 시 초기화
@@ -49,7 +70,7 @@ function Subtitle({idx, hover, subtitle}:CurrentHover){
     return (
         <motion.h1
           id="sub-title"
-          className="relative font-bold text-7xl pl-11 z-10 font-paperlogy"
+          className="relative font-extrabold text-7xl pl-11 z-10 font-paperlogy"
           style={{ color:hover!==null&& hover === idx ? "#FFFFFF" : "#000000" }}
           initial={{ scale: 0 }}
           animate={{ scale: hover !== null && hover === idx ? 1.1 : 1 }}

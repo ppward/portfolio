@@ -5,7 +5,16 @@ import {easeOut, motion} from "motion/react"
 import NavList from "../ui/navlist";
 import { delay } from "motion";
 
-export default function Header(){
+interface HeaderProps {
+  sectionRefs: {
+    resume: React.RefObject<HTMLDivElement>;
+    skill: React.RefObject<HTMLDivElement>;
+    project: React.RefObject<HTMLDivElement>;
+    contact: React.RefObject<HTMLDivElement>;
+  };
+}
+
+export default function Header({sectionRefs}:HeaderProps){
     const [isHover, setIsHover] = useState(false);
   // 애니메이션 효과 부분
     const text = "GIPYO PARK";
@@ -54,7 +63,7 @@ export default function Header(){
                   {/*sub Title 나중에 Link 태그로 변경하기*/}
                   <div className="flex flex-col justify-center items-center w-full h-full">
                       <nav className="w-[calc(95%)] pl-28">
-                      <NavList/>
+                      <NavList sectionRefs={sectionRefs}/>
                       </nav>
                   </div>
                   {/*title message*/}

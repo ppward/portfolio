@@ -1,33 +1,29 @@
 "use client"
+import { useRef } from "react";
 
-export default function Test(){
-    return (
-      
-      
-              <div className="relative w-full h-[400vh] bg-gray-900">
-                
-                {/* 🟢 첫 번째 화면 (고정된 상태 유지) */}
-                <div className="sticky top-0 w-1/2 h-1/6 flex items-center justify-center bg-blue-500 text-white text-5xl font-bold z-10">
-                  Fixed First Section
-                </div>
-          
-                {/* 🔴 두 번째 화면 (스크롤 시 위로 겹쳐짐) */}
-                <div className="sticky top-0 w-1/2 h-1/6 flex items-center justify-center bg-red-500 text-white text-5xl font-bold z-20">
-                  Second Section
-                </div>
-          
-                {/* 🔵 세 번째 화면 (스크롤 시 위로 겹쳐짐) */}
-                <div className="sticky top-0 w-1/2 h-1/6 flex items-center justify-center bg-green-500 text-white text-5xl font-bold z-30">
-                  Third Section
-                </div>
-          
-                {/* 🟡 네 번째 화면 (스크롤 시 위로 겹쳐짐) */}
-                <div className="sticky top-0 w-1/2 h-1/6 flex items-center justify-center bg-yellow-500 text-white text-5xl font-bold z-40">
-                  Fourth Section
-                </div>
-          
-              </div>
-          
-    )
-    
+export default function ScrollToSection() {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  const handleScroll = () => {
+    sectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <div className="h-400vh flex flex-col items-center justify-center">
+      {/* 버튼 클릭 시 스크롤 이동 */}
+      <button onClick={handleScroll} className="p-3 bg-blue-500 text-white rounded-md">
+        Scroll to Section
+      </button>
+
+      {/* 긴 내용 추가 */}
+      <div className="h-[150vh] bg-gray-200 flex items-center justify-center">
+        <p>스크롤을 아래로 내려보세요</p>
+      </div>
+
+      {/* 이동할 대상 섹션 */}
+      <div ref={sectionRef} className="h-screen bg-green-500 flex items-center justify-center">
+        <h2 className="text-white text-3xl">📌 이동한 섹션</h2>
+      </div>
+    </div>
+  );
 }

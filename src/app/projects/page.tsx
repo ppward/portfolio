@@ -44,19 +44,7 @@ export default function Projects(){
     ]
     return (
         <div className="relative flex flex-row w-full min-h-full ">
-            <div className="sticky w-24 h-[400px] left-[90%] flex justify-center items-center"
-            style={{ top: "max(10%, 200px)",}}>
-                <h1
-                    className="text-8xl text-blue-600 font-paperlogy"
-                    style={{
-                        transform: "rotate(270deg)",
-                        fontWeight:900,
-                    }}
-                    >
-                    Project
-                </h1>
-            </div>
-        <div className="flex flex-1 flex-col p-5">
+        <div className="flex flex-1 flex-col p-5 pl-24">
             {projects.map((key, idx)=>(
                     <div key={idx} className="flex flex-row p-5 items-center">
                         <div className="w-5 h-5 rounded-full bg-blue-600 mr-10"/>
@@ -77,10 +65,22 @@ export default function Projects(){
                             </div>
                         </CardHeader>
                     </Card>
-                    <p className="w-[calc(65%-130px)] ml-20 font-paperlogy text-black text-3xl font-[700] whitespace-pre-line">{key.describe}</p>
+                    <p className="w-[calc(65%-130px)] ml-20 font-paperlogy text-black text-xl font-[700] whitespace-pre-line">{key.describe}</p>
                     </div>
                 ))}
             </div>     
+            <div className="sticky w-[130px] h-[400px] flex justify-center items-center"
+            style={{ top: "max(10%, 200px)",}}>
+                <h1
+                    className="text-8xl text-blue-600 font-paperlogy"
+                    style={{
+                        transform: "rotate(270deg)",
+                        fontWeight:900,
+                    }}
+                    >
+                    Project
+                </h1>
+            </div>
     </div>
     )
 }

@@ -6,7 +6,7 @@ export const language = [
     {idx:5, name: "C", url:"/assets/skills/C.svg"},
     {idx:6, name:"CSS" ,url:"/assets/skills/CSS.svg"},
     {idx:7, name:"R" ,url:"/assets/skills/R-Light.svg"},
-    {idx:8, name:"Electron" ,url:"/assets/skills/Electron.svg"},
+    {idx:8, name: "Matlab", url:"/assets/skills/Matlab-Dark.svg"},
 
 ];
 export const framework= [
@@ -17,7 +17,7 @@ export const framework= [
     {idx:5, name: "Redux", url:"/assets/skills/Redux.svg"},
     {idx:6, name: "Tailwindcss", url:"/assets/skills/Tailwindcss-Dark.svg"},
     {idx:7, name: "Selenium", url:"/assets/skills/Selenium.svg"},
-    {idx:8, name: "Matlab", url:"/assets/skills/Matlab-Dark.svg"},
+    {idx:8, name:"Electron" ,url:"/assets/skills/Electron.svg"},
     
 ];
 export const server=[
