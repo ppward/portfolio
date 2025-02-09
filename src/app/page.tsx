@@ -1,15 +1,17 @@
-"use client"
-import {useEffect, useRef, useState } from "react"
-import Link from "next/link";
+"use client";
+import {useEffect, useRef, useState } from "react";
+import {motion} from "motion/react";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import Header from "@/components/layer/header"
 import ResumeMain from "./resumeMain/page";
 import Skill from "./skill/page";
 import Projects from "./projects/page";
 import Contact from "./contact/page";
+import { Scale } from "lucide-react";
 
 
 export default function Home() {
+  const [hover,setHover]= useState<boolean>(false);
   const [headerColor, setHeaderColor] = useState("#2563EB"); // 기본 헤더 색상
   const resumeRef = useRef<HTMLDivElement>(null!);
   const skillRef = useRef<HTMLDivElement>(null!);
@@ -31,9 +33,15 @@ export default function Home() {
   return (
     <ParallaxProvider >
     <div className="sm:min-w-[600px] relative w-full h-screen scroll-container">
-      {/*나중에 a태그 => Link 태그로 변경하기*/}
-    <a onClick={handleScrollToTop} className="fixed block w-10 h-10 top-[50px] left-[50px] z-40 cursor-pointer">
-      <div className="w-4 h-4 ">
+    <a onClick={handleScrollToTop} className="fixed block w-24 h-24 top-[20px] left-[20px] z-40 cursor-pointer">
+      <motion.div
+      initial={{opacity:0}}
+      whileHover={{opacity:1,scale:1}}
+      className="absolute w-24 h-24 border-blue-600 border-4 rounded-xl"    
+      animate={{rotate:360}}
+      transition={{ opacity:1, duration: 3.5 , repeat:Infinity, ease: "linear" }}
+      />
+      <div className="flex w-24 h-24 justify-center items-center" >
           <h1 className="font-paperlogy font-black text-6xl text-blue-600" 
           >
             P.</h1>    

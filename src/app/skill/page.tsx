@@ -2,7 +2,7 @@ import SkillLayer from "./skillLayer";
 
 export default function Skill(){
     return(
-    <div className="relative w-full h-screen pl-10">
+    <div className="relative w-full min-h-screen pl-10">
             
         <div className="relative h-full">
             <div className="flex w-full pl-20 items-center">
@@ -13,7 +13,7 @@ export default function Skill(){
                 }}
                 >Skill</h1>
             </div>
-            <div className="relative flex flex-col w-full h-[70%] pt-6">
+            <div className="relative flex flex-col w-full h-[90%]">
                <SkillLayer/>
             </div>
         </div>
