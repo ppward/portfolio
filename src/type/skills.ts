@@ -15,7 +15,7 @@ export const framework= [
     {idx:3, name: "Spring", url:"/assets/skills/Spring-Light.svg"},
     {idx:4, name: "SpringBoot", url:"/assets/skills/SpringBoot.svg"},
     {idx:5, name: "Redux", url:"/assets/skills/Redux.svg"},
-    {idx:6, name: "Tailwindcss", url:"/assets/skills/TailwindCSS-Dark.svg.svg"},
+    {idx:6, name: "Tailwindcss", url:"/assets/skills/TailwindCSS-Dark.svg"},
     {idx:7, name: "Selenium", url:"/assets/skills/Selenium.svg"},
     {idx:8, name:"Electron" ,url:"/assets/skills/Electron.svg"},
     
