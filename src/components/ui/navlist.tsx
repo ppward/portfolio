@@ -43,7 +43,7 @@ export default function NavList({sectionRefs}:HeaderProps){
         <motion.li className="cursor-pointer">
         {list.map((item, idx)=>(
             <a className="relative block m-2 " key={idx} onClick={() => handleScrollToSection(item.ref)}>
-            <motion.div className="relative flex items-center h-20"
+            <motion.div className="relative flex items-center lg:h-20 md:h-18 sm:h-16 max-sm:h-16"
             onHoverStart={() => setIsHover({ idx })} // Hover 시작 시 해당 인덱스를 저장
             onHoverEnd={() => setIsHover({ idx: null })} // Hover 종료 시 초기화
             >
@@ -70,7 +70,7 @@ function Subtitle({idx, hover, subtitle}:CurrentHover){
     return (
         <motion.h1
           id="sub-title"
-          className="relative font-extrabold lg:text-7xl md:text-5xl sm:text-3xl lg:pl-11 md:pl-7 sm:pl-4 z-10 font-paperlogy"
+          className="relative font-extrabold lg:text-7xl md:text-5xl sm:text-3xl max-sm:text-3xl lg:pl-11 md:pl-7 sm:pl-4 max-sm:pl-4 z-10 font-paperlogy"
           style={{ color:hover!==null&& hover === idx ? "#FFFFFF" : "#000000" }}
           initial={{ scale: 0 }}
           animate={{ scale: hover !== null && hover === idx ? 1.1 : 1 }}
@@ -83,7 +83,7 @@ function Subtitle({idx, hover, subtitle}:CurrentHover){
 //화살표 애니매이션 부분
 function ArrowTag({idx, hover}:CurrentHover){
     return(
-        <motion.h1  id="arrow-motion" className="absolute w-full md:text-5xl sm:text-3xl z-10 pt-1" 
+        <motion.h1  id="arrow-motion" className="absolute w-full md:text-5xl sm:text-3xl max-sm:text-3xl z-10 pt-1" 
         style={{color: idx!=null && hover==idx? "#FFFFFF":"#1e88e5"}}
         initial={{x:"100vw", opacity:0}}
         animate={{

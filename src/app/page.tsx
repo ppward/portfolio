@@ -31,16 +31,16 @@ export default function Home() {
   return (
     <ParallaxProvider >
     <div className="sm:min-w-[700px] relative w-full h-screen">
-    <a onClick={handleScrollToTop} className="fixed block lg:w-24 lg:h-24 md:w-[90px] md:h-[90px] sm:w-12 sm:h-12 top-[20px] left-[20px] z-40 cursor-pointer ">
+    <a onClick={handleScrollToTop} className="fixed block lg:w-24 lg:h-24 md:w-20 md:h-20 sm:w-12 sm:h-12 max-sm:w-12 max-sm:h-12 top-[20px] left-[20px] z-40 cursor-pointer ">
       <motion.div
       initial={{opacity:0}}
       whileHover={{opacity:1,scale:1}}
-      className="absolute md:w-24 md:h-24 border-blue-600 border-4 rounded-xl sm:w-12 sm:h-12"    
+      className="absolute lg:w-24 lg:h-24 md:w-20 md:h-20 sm:w-12 sm:h-12 max-sm:w-12 max-sm:h-12 border-blue-600 border-4 rounded-xl "
       animate={{rotate:360}}
       transition={{ opacity:1, duration: 3.5 , repeat:Infinity, ease: "linear" }}
       />
-      <div className="flex md:w-24 md:h-24 justify-center items-center sm:w-12 sm:h-12" >
-          <h1 className="font-paperlogy font-black lg:text-6xl md:text-4xl sm:text-2xl text-blue-600" 
+      <div className="flex lg:w-24 lg:h-24 md:w-20 md:h-20 sm:w-12 sm:h-12 max-sm:w-12 max-sm:h-12 justify-center items-center" >
+          <h1 className="font-paperlogy font-black lg:text-6xl md:text-4xl sm:text-2xl max-sm:text-2xl text-blue-600" 
           >
             P.</h1>    
       </div>
