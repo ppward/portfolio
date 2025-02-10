@@ -42,14 +42,14 @@ export default function Projects(){
     ]
     return (
         <div className="relative flex flex-row w-full min-h-full ">
-        <div className="flex flex-1 flex-col p-5 pl-24">
+        <div className="flex flex-1 flex-col p-5 lg:pl-24 md:pl-20 sm:pl-10 ">
             {projects.map((key, idx)=>(
                     <div key={idx} className="flex flex-row p-5 items-center">
-                        <div className="w-5 h-5 rounded-full bg-blue-600 mr-10"/>
-                    <Card className="w-[300px] cursor-pointer" >
+                        <div className="lg:w-5 lg:h-5 md:w-3 md:h-3 sm:w-3 sm:h-3  rounded-full bg-blue-600 lg:mr-10 md:mr-5 sm:mr-5"/>
+                    <Card className="lg:w-[300px] md:w-[260px] sm:w-[220px] cursor-pointer" >
                         <CardContent className="p-0">
                         <Image
-                        className="w-[300px] h-[170px] rounded-t-xl object-cover"
+                        className="lg:w-[300px] md:w-[260px] sm:w-[220px] lg:h-[170px] md:h-[154px] sm:h-[130px] rounded-t-xl object-cover"
                             src={key.url}
                             width={200}
                             height={50}
@@ -63,8 +63,8 @@ export default function Projects(){
                             </div>
                         </CardHeader>
                     </Card>
-                    <div className="w-[calc(65%-130px)] ml-20 font-paperlogy text-black text-lg font-bold">
-                        <p className="text-2xl text-blue-600">Purpose</p>
+                    <div className="w-[calc(65%-130px)] lg:ml-20 md:ml-10 sm:ml-5 font-paperlogy text-black lg:text-lg md:text-base: sm:text-sm font-bold">
+                        <p className="lg:text-2xl md:text-xl sm:text-base text-blue-600">Purpose</p>
                         <p>{key.purpose}</p>
                         <br/>
                         <p className=" whitespace-pre-line">{key.describe}</p>
@@ -73,13 +73,12 @@ export default function Projects(){
                     </div>
                 ))}
             </div>     
-            <div className="sticky w-[130px] h-[400px] flex justify-center items-center"
+            <div className="sticky lg:w-[130px] lg:h-[400px] md:w-[100px] md:h-[300px] sm:w-[80px] sm:h-[240px] flex justify-center items-center"
             style={{ top: "max(10%, 200px)",}}>
                 <h1
-                    className="text-8xl text-blue-600 font-paperlogy"
+                    className="lg:text-8xl md: text-6xl sm:text-4xl text-blue-600 font-paperlogy font-black"
                     style={{
                         transform: "rotate(270deg)",
-                        fontWeight:900,
                     }}
                     >
                     Project

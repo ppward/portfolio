@@ -70,7 +70,7 @@ function Subtitle({idx, hover, subtitle}:CurrentHover){
     return (
         <motion.h1
           id="sub-title"
-          className="relative font-extrabold text-7xl pl-11 z-10 font-paperlogy"
+          className="relative font-extrabold lg:text-7xl md:text-5xl sm:text-3xl lg:pl-11 md:pl-7 sm:pl-4 z-10 font-paperlogy"
           style={{ color:hover!==null&& hover === idx ? "#FFFFFF" : "#000000" }}
           initial={{ scale: 0 }}
           animate={{ scale: hover !== null && hover === idx ? 1.1 : 1 }}
@@ -83,7 +83,7 @@ function Subtitle({idx, hover, subtitle}:CurrentHover){
 //화살표 애니매이션 부분
 function ArrowTag({idx, hover}:CurrentHover){
     return(
-        <motion.h1  id="arrow-motion" className="absolute w-full text-5xl z-10 pt-1" 
+        <motion.h1  id="arrow-motion" className="absolute w-full md:text-5xl sm:text-3xl z-10 pt-1" 
         style={{color: idx!=null && hover==idx? "#FFFFFF":"#1e88e5"}}
         initial={{x:"100vw", opacity:0}}
         animate={{

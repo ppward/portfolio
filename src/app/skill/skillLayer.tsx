@@ -7,7 +7,7 @@ export default function SkillLayer(){
         <div className="absolute top-[calc(50%-50px)] left-[calc(50%-50px)] w-[100px] h-[100px] bg-white rounded-full"/>
         <div className="flex flex-1 flex-row justify-center">
             <div className="w-[42%] bg-blue-600 m-2 p-4 rounded-xl">
-            <h2 className="font-paperlogy text-white text-3xl font-black">Language</h2>
+            <h2 className="font-paperlogy text-white lg:text-3xl md:text-xl sm:text-lg font-black">Language</h2>
                 <div className="grid grid-cols-4 place-items-center">
                 {language.map((item, idx )=>(
                     <SkillCard key={idx} image={item.url} name={item.name} />
@@ -15,7 +15,7 @@ export default function SkillLayer(){
                 </div>
             </div>
             <div className="w-[42%] bg-blue-900 m-2 p-4 rounded-xl">
-            <h2 className="font-paperlogy text-white text-3xl font-black text-end">Server</h2>
+            <h2 className="font-paperlogy text-white lg:text-3xl md:text-xl sm:text-lg font-black text-end">Server</h2>
                 <div className="grid grid-cols-4 place-items-center">
                 {server.map((item, idx )=>(
                     <SkillCard key={idx} image={item.url} name={item.name} />
@@ -30,7 +30,7 @@ export default function SkillLayer(){
                 <SkillCard key={idx} image={item.url} name={item.name} />
                 ))}
                 </div>
-                <h2 className="font-paperlogy text-white text-3xl font-black">Framework</h2>
+                <h2 className="font-paperlogy text-white lg:text-3xl md:text-xl sm:text-lg font-black">Framework</h2>
             </div>
             <div className="w-[42%] bg-blue-600 m-2 p-4 rounded-xl">
                 <div className="grid grid-cols-4 place-items-center">
@@ -38,7 +38,7 @@ export default function SkillLayer(){
                     <SkillCard key={idx} image={item.url} name={item.name} />
                 ))}
                 </div>
-                <h2 className="font-paperlogy text-white text-3xl font-black text-end">Tool</h2>
+                <h2 className="font-paperlogy text-white lg:text-3xl md:text-xl sm:text-lg font-black text-end">Tool</h2>
             </div>
         </div>
     </div>
