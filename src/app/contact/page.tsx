@@ -27,6 +27,7 @@ export default function Contact(){
                     <h3>평일 오후 1시부터 6시 사이에 연락 주시면<br/> 빠르게 답변 드릴 수 있습니다.</h3>
                   </div>
                 </div>
+                <div className="relative h-[95%] mr-10 lg:border-2 md:border-2 sm:border max-sm:border border-white"/>
                 <div className="flex flex-col w-1/2 h-full justify-around items-center">
                   <div className="flex flex-row w-[90%] h-[35%]  bg-white rounded-xl p-3">
                   <a href="https://github.com/ppward" className="flex flex-row">
