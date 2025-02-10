@@ -23,7 +23,7 @@ export default function Projects(){
         },
         {
             name:"MIML",
-            url:"/assets/items/miml.png",
+            url:"/assets/items/MIML.png",
             purpose:"AI와 함께하는 나만의 독서 선생님을 만들어 코칭을 맞춤형 독서를 지원",
             describe:"단락 혹은 문맥 단위의 텍스트를 NLP 모델이 요약 요약된 텍스트를 gpt-4를 활용하여 dall-e가 이미지를 제작"
         },
