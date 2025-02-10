@@ -1,9 +1,7 @@
 "use client"
-import { useState } from "react"
 import Image from "next/image";
-import {easeOut, motion} from "motion/react"
+import { motion} from "motion/react"
 import NavList from "../ui/navlist";
-import { delay } from "motion";
 
 interface HeaderProps {
   sectionRefs: {
@@ -15,7 +13,6 @@ interface HeaderProps {
 }
 
 export default function Header({sectionRefs}:HeaderProps){
-    const [isHover, setIsHover] = useState(false);
   // 애니메이션 효과 부분
     const text = "GIPYO PARK";
     // 개별 글자의 애니메이션 시간
@@ -32,7 +29,7 @@ export default function Header({sectionRefs}:HeaderProps){
         transition: {
           staggerChildren: 0.15, // 각 글자 애니메이션 순차적 실행
           repeat: Infinity, // 무한 반복
-          repeatType: "loop" as "loop", // 반복 방식 설정
+          repeatType: "loop" as const, // 반복 방식 설정
           duration: totalAnimationTime, // 한 번의 애니메이션 지속 시간
           repeatDelay: 9, // 반복 간 딜레이 (4초)
         },

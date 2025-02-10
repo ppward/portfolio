@@ -1,5 +1,5 @@
 "use client";
-import {useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import {motion} from "motion/react";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import Header from "@/components/layer/header"
@@ -7,12 +7,10 @@ import ResumeMain from "./resumeMain/page";
 import Skill from "./skill/page";
 import Projects from "./projects/page";
 import Contact from "./contact/page";
-import { Scale } from "lucide-react";
+
 
 
 export default function Home() {
-  const [hover,setHover]= useState<boolean>(false);
-  const [headerColor, setHeaderColor] = useState("#2563EB"); // 기본 헤더 색상
   const resumeRef = useRef<HTMLDivElement>(null!);
   const skillRef = useRef<HTMLDivElement>(null!);
   const projectRef = useRef<HTMLDivElement>(null!);

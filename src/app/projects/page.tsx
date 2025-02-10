@@ -1,9 +1,6 @@
 import Image from "next/image"
-import { ClipboardList,FileText } from "lucide-react";
-import {motion} from "motion/react"
+import { FileText } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { describe } from "node:test";
-import { Parallax } from "react-scroll-parallax";
 export default function Projects(){
     const projects=[
         {

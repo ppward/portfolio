@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import Image from "next/image";
 import {motion} from "motion/react";
 
@@ -9,8 +9,8 @@ interface skillProps{
 };
 
 export default function SkillCard(skillInfo:skillProps){
-    const baseStyle = "text-white text-center font-black";
-    const combineStyle = classNames(baseStyle, skillInfo.className);
+    // const baseStyle = "text-white text-center font-black";
+    // const combineStyle = classNames(baseStyle, skillInfo.className);
     const customList:string[] = ["SpringBoot"];
     if (customList.includes(skillInfo.name)) {
         // console.log(`${target}은 배열에 포함되어 있습니다.`);

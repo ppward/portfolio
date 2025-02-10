@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function ResumeLayer2(){
 return (
     <div className="w-full h-full">

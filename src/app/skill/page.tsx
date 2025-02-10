@@ -1,9 +1,9 @@
+"use client"
 import SkillLayer from "./skillLayer";
 
 export default function Skill(){
     return(
     <div className="relative w-full min-h-screen pl-10">
-            
         <div className="relative h-full">
             <div className="flex w-full pl-20 items-center">
             <h1

@@ -1,5 +1,5 @@
 import SkillCard from "@/components/ui/skillcard";
-import { language, framework, environment, tool, server} from "@/type/skills";
+import { language, framework, tool, server} from "@/type/skills";
 export default function SkillLayer(){
     return(
    

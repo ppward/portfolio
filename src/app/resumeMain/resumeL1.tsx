@@ -32,7 +32,7 @@ export default function ResumeLayer1(){
             style={{fontSize:22 }}
             >
               {commentList.map((item, idx)=>(
-                <li key={item.id}>
+                <li key={idx}>
                     {item.text}
                 </li>
               ))}
