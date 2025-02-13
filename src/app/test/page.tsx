@@ -1,28 +1,37 @@
-"use client"
-import { useRef } from "react";
+"use client";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
-export default function ScrollToSection() {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-
-  const handleScroll = () => {
-    sectionRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+export default function FlipTwoDivs() {
+  const [flipped, setFlipped] = useState(false);
 
   return (
-    <div className="h-400vh flex flex-col items-center justify-center">
-      {/* 버튼 클릭 시 스크롤 이동 */}
-      <button onClick={handleScroll} className="p-3 bg-blue-500 text-white rounded-md">
-        Scroll to Section
-      </button>
+    <div className="flex items-center justify-center h-screen">
+      <div
+        className="relative w-40 h-40 perspective-1000"
+        onClick={() => setFlipped(!flipped)}
+      >
+        {/* 앞면 */}
+        <motion.div
+          className="absolute w-full h-full bg-blue-500 flex items-center justify-center text-white text-2xl font-bold rounded-lg"
+          initial={{ rotateY: 0 }}
+          animate={{ rotateY: flipped ? 180 : 0 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          style={{ backfaceVisibility: "hidden" }} // 뒷면이 보이지 않도록 설정
+        >
+          Front
+        </motion.div>
 
-      {/* 긴 내용 추가 */}
-      <div className="h-[150vh] bg-gray-200 flex items-center justify-center">
-        <p>스크롤을 아래로 내려보세요</p>
-      </div>
-
-      {/* 이동할 대상 섹션 */}
-      <div ref={sectionRef} className="h-screen bg-green-500 flex items-center justify-center">
-        <h2 className="text-white text-3xl">📌 이동한 섹션</h2>
+        {/* 뒷면 */}
+        <motion.div
+          className="absolute w-full h-full bg-green-500 flex items-center justify-center text-white text-2xl font-bold rounded-lg"
+          initial={{ rotateY: -180 }}
+          animate={{ rotateY: flipped ? 0 : -180 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          style={{ backfaceVisibility: "hidden" }}
+        >
+          Back
+        </motion.div>
       </div>
     </div>
   );
