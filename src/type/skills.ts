@@ -46,3 +46,18 @@ export const environment=[
     {idx:2, name:"RaspberryPi",url:"/assets/skills/RaspberryPi-Light.svg"},
     {idx:3, name:"Bash",url:"/assets/skills/Bash-Light.svg"},  
 ];
+
+export const primarily=[
+    {idx:1, name: "JavaScript", url:"/assets/skills/JavaScript.svg", level:8},
+    {idx:2, name: "Java", url:"/assets/skills/Java-Light.svg", level:6},
+    {idx:3, name: "Python", url:"/assets/skills/Python-Dark.svg", level:5},
+    {idx:4, name: "TypeScript", url:"/assets/skills/TypeScript.svg", level:7},
+    {idx:5, name: "Spring", url:"/assets/skills/Spring-Light.svg", level:7},
+    {idx:6, name: "React", url:"/assets/skills/React-Dark.svg", level:8},
+    {idx:7, name: "MySQL", url:"/assets/skills/MySQL-Dark.svg", level:7},
+    {idx:8, name: "MongoDB", url:"/assets/skills/MongoDB.svg", level:4},
+    {idx:9, name: "Nginx", url:"/assets/skills/Nginx.svg", level:7},
+    {idx:10, name: "Linux", url:"/assets/skills/Linux-Light.svg", level:5},
+    {idx:11, name: "Express", url:"/assets/skills/ExpressJS-Light.svg", level:8},
+    {idx:12, name: "ReactNative", url:"/assets/skills/React-Light.svg", level:9},
+]
