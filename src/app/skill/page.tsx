@@ -3,18 +3,22 @@ import { useState } from "react";
 import {motion} from "motion/react";
 import SkillLayer from "./skillLayer";
 import StatusLayer from "./statusLayer";
+import QuarterFiles from "./quarterFiles";
 
 export default function Skill(){
     const [flipped, setFlipped] = useState<boolean>(false);
     return(
     <div className="relative w-full h-screen pl-10">
         <div className="relative h-full">
-            <div className="flex w-full pl-20 py-5 items-center">
+            <div className="flex w-full px-20 py-5  justify-between items-center">
             <h1
                 className="font-paperlogy lg:text-[110px] md:text-[80px] sm:text-6xl max-sm:text-6xl text-blue-600 font-black"
                 >Skill</h1>
+                <div className="flex w-16 h-8 p-1 rounded-2xl bg-zinc-300 items-center" style={{justifyContent:"flex-"+(flipped? "end":"start")}}  onClick={()=>setFlipped(!flipped)}>
+                    <div className="w-6 h-6 rounded-full bg-blue-600"></div>
+                </div>
             </div>
-            <div className="relative flex flex-col w-full h-[80%]" onClick={()=>setFlipped(!flipped)}>
+            <div className="relative flex flex-col w-full h-[80%]">
                 <motion.div className="absolute w-full h-full " initial={{ rotateY: 0 }}
                     animate={{ rotateY: flipped ? 180 : 0 }}
                     transition={{ duration: 0.6, ease: "easeInOut" }}
@@ -29,7 +33,7 @@ export default function Skill(){
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                     style={{ backfaceVisibility: "hidden" }}
                 >
-                    <StatusLayer flip={flipped}/>
+                    <QuarterFiles />
                 </motion.div>
             </div>
         </div>
