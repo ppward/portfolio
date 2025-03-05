@@ -60,7 +60,7 @@ export default function Contact(){
                   </div>
 
                   <div className="flex flex-row w-[90%] h-[24%]  bg-white rounded-xl p-3">
-                  <a href="https://github.com/ppward" className="flex flex-row">
+                  <a href="/files/포트폴리오-박기표.pdf" className="flex flex-row">
                     <div  className="flex flex-col justify-center">
                       <div className="flex lg:w-[80px] md:w-[80px] sm:w-[60px] max-sm:w-[60px] bg-blue-600 p-1 rounded-xl justify-center">
                         <FileText className="lg:w-[65px] lg:h-[65px] md:w-[60px] md:h-[60px] sm:w-[40px] sm:h-[40px]  max-sm:w-[40px] max-sm:h-[40px]"/>
