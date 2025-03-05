@@ -4,7 +4,7 @@ type Props = {
   };
 export default function IconCircle({children}:Props){
     return(
-        <div className="flex w-[50px] h-[50px] justify-center items-center rounded-full bg-blue-400">
+        <div className="flex w-[50px] h-[50px] justify-center items-center rounded-full bg-blue-600">
             {children}
         </div>
     )
