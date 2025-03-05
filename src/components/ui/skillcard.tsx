@@ -11,7 +11,7 @@ interface skillProps{
 export default function SkillCard(skillInfo:skillProps){
     // const baseStyle = "text-white text-center font-black";
     // const combineStyle = classNames(baseStyle, skillInfo.className);
-    const customList:string[] = ["SpringBoot"];
+    const customList:string[] = ["SpringBoot ⭐"];
     if (customList.includes(skillInfo.name)) {
         // console.log(`${target}은 배열에 포함되어 있습니다.`);
         return(
@@ -27,7 +27,7 @@ export default function SkillCard(skillInfo:skillProps){
                 alt={skillInfo.name}
                 />
                 </motion.div>
-                <h2 className="pt-1 text-white text-center font-black lg:text-base md:text-sm sm:text-[8px] max-sm:text-[8px] font-paperlogy">{skillInfo.name}</h2>
+                <h2 className="pt-1 text-white text-center font-black lg:text-base md:text-xs sm:text-[8px] max-sm:text-[8px] font-paperlogy">{skillInfo.name}</h2>
             </div>
         )
     } else {
@@ -37,7 +37,7 @@ export default function SkillCard(skillInfo:skillProps){
             <motion.div whileHover={{scale:1.2}}>
                 <Image className="lg:w-[50px] md:w-[40px] sm:w-[30px] max-sm:w-[30px]" src={skillInfo.image} width={50} height={50} alt={skillInfo.name} />
             </motion.div>
-            <h2 className="pt-1 text-white text-center font-black lg:text-base md:text-sm sm:text-[8px] max-sm:text-[8px] font-paperlogy">{skillInfo.name}</h2>
+            <h2 className="pt-1 text-white text-center font-black lg:text-base md:text-xs sm:text-[8px] max-sm:text-[8px] font-paperlogy">{skillInfo.name}</h2>
         </div>
           
             )
