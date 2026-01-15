@@ -1,5 +1,6 @@
 "use client"
 import SkillLayer from "./skillLayer";
+import ResumeUdating1 from "../resumeMain/resumeU1";
 
 export default function Skill(){
     return(

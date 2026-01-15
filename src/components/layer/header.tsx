@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import { motion} from "motion/react"
+import { motion } from "motion/react"
 import NavList from "../ui/navlist";
 
 interface HeaderProps {
@@ -50,7 +50,7 @@ export default function Header({sectionRefs}:HeaderProps){
           duration: letterDuration, // 전체 애니메이션 지속 시간
         },
       },
-    };
+    } as const ;
 
     return( 
         <div className="relative w-screen md:h-screen p-8 overflow-hidden">

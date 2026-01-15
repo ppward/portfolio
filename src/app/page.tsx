@@ -6,6 +6,7 @@ import Header from "@/components/layer/header"
 import ResumeMain from "./resumeMain/page";
 import Skill from "./skill/page";
 import Projects from "./projects/page";
+import ProjectsCarousel from "./projects/projectUpate"
 import Contact from "./contact/page";
 
 
@@ -37,7 +38,11 @@ export default function Home() {
       whileHover={{opacity:1,scale:1}}
       className="absolute lg:w-24 lg:h-24 md:w-20 md:h-20 sm:w-12 sm:h-12 max-sm:w-12 max-sm:h-12 border-blue-600 border-4 rounded-xl "
       animate={{rotate:360}}
-      transition={{ opacity:1, duration: 3.5 , repeat:Infinity, ease: "linear" }}
+       transition={{
+    rotate: { duration: 3.5, repeat: Infinity, ease: "linear" },
+    opacity: { duration: 0.2 },
+    scale: { duration: 0.2 },
+  }}
       />
       <div className="flex lg:w-24 lg:h-24 md:w-20 md:h-20 sm:w-12 sm:h-12 max-sm:w-12 max-sm:h-12 justify-center items-center" >
           <h1 className="font-paperlogy font-black lg:text-6xl md:text-4xl sm:text-2xl max-sm:text-2xl text-blue-600" 
@@ -67,7 +72,7 @@ export default function Home() {
 
         {/* 🟡 네 번째  섹션 (Projects) */}
         <div ref={projectRef} className="mt-10">
-          <Projects />
+          <ProjectsCarousel />
         </div> 
         
         {/* 🟡 다섯 번째  섹션 (Projects) */}
