@@ -46,6 +46,41 @@ const journey = [
   }
 ];
 
+const timelineJourney = [
+  {
+    year: "2023",
+    title: "IoT 빅데이터 응용 교육과정 수료",
+    skills: ["java", "hadoop", "spring"],
+    description: "데이터 수집 및 처리 흐름 학습분산 처리 및 로그 데이터 분석 경험",
+    color: "from-blue-400 to-cyan-400",
+    icon: "🌱"
+  },
+   {
+    year: "2024",
+    title: "TS&P 인턴십 근무",
+    skills: ["Docker", "AWS", "CI/CD", "Kubernetes"],
+    description: "실제 프로덕션 환경에서 쌓이는 데이터 처리 및 기존 코드 분석 및 개선.",
+    color: "from-orange-400 to-red-400",
+    icon: "⚡"
+  },
+  {
+    year: "2025.2",
+    title: "선문대학교 컴퓨터 공학부 졸업",
+    skills: ["AI/ML", "WebAssembly", "GraphQL", ],
+    description: "최신 기술 트렌드를 학습하며 지속적으로 발전하고 있습니다.",
+    color: "from-green-400 to-emerald-400",
+    icon: "🚀"
+  },
+  {
+    year: "2025.7",
+    title: "블록젠 근무",
+    skills: ["crawling", "javascript"],
+    description: "자사 서비스 분석 및 개선, 토스 미니앱 프로젝트 참여.",
+    color: "from-indigo-400 to-purple-400",
+    icon: "🎯"
+  }
+]
+
 export default function TimelineVersion() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -54,7 +89,7 @@ export default function TimelineVersion() {
   });
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 py-20 px-8 rounded-xl">
+    <div ref={containerRef} className="min-h-screen overflow-y-auto bg-gradient-to-br from-gray-900 to-gray-800 py-20 px-8 rounded-xl">
       
       {/* Header */}
       <motion.div
@@ -70,7 +105,7 @@ export default function TimelineVersion() {
       <div className="max-w-5xl mx-auto relative">
         
         {/* Center Line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 opacity-30" />
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-[90%] bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 opacity-30" />
 
         {/* Progress Line */}
         <motion.div
@@ -82,7 +117,7 @@ export default function TimelineVersion() {
 
         {/* Journey Items */}
         <div className="space-y-6">
-          {journey.map((item, index) => {
+          {timelineJourney.map((item, index) => {
             const isLeft = index % 2 === 0;
             
             return (

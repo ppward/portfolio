@@ -85,9 +85,10 @@ export default function ResumeLayer1() {
                             className="font-paperlogy text-center font-bold"
                             style={{ fontSize: RESPONSIVE_SIZES.typography.description }}
                         >
-                            주로 React계열의 프레임워크를 통해서 JS, TS 개발을 주로 했습니다.<br/>
-                            회사협력 프로젝트를 진행하며,<br/> 
-                            SpringBoot와 MySQL을 사용한 백엔드 구현에 참여하였습니다.
+                            React 기반의 JavaScript·TypeScript 프론트엔드와<br/>
+                            Node.js 및 Spring Boot 기반 백엔드 개발 경험을 보유하고 있습니다.<br/>
+                            MySQL/MariaDB를 활용한 데이터 설계와 API 구현 경험이 있으며,<br/>
+                            현재는 개인 프로젝트를 통해 AI 기술을 서비스에 적용하는 과정을 실험 중입니다.
                         </h2>
                     </div>
                 </div>
@@ -96,7 +97,7 @@ export default function ResumeLayer1() {
             {/* 전달하고자 하는 문장 */}
             <div className="relative flex w-full min-h-[445px]">
                 <ul 
-                    className="flex flex-col  w-full justify-around items-center font-paperlogy"
+                    className="flex flex-col  w-full gap-8 items-center font-paperlogy"
                     style={{ 
                         padding: RESPONSIVE_SIZES.spacing.padding,
                         fontSize: RESPONSIVE_SIZES.typography.listItem,

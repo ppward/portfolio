@@ -56,7 +56,7 @@ export default function ProjectsCarousel() {
     const currentItem = items[currentIndex];
 
     return (
-        <div className="w-screen h-screen flex flex-col items-center justify-center overflow-hidden p-8 gap-8">
+        <div className="w-screen h-screen flex flex-col bg-gradient-to-br from-gray-900 to-gray-800 items-center justify-center overflow-hidden p-8 gap-8">
             
             {/* 상단: 현재 아이템 + 설명란 */}
             <div className="w-full max-w-7xl flex-1 flex gap-8">
