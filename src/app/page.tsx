@@ -6,7 +6,7 @@ import Header from "@/components/layer/header"
 import ResumeMain from "./resumeMain/page";
 import Skill from "./skill/page";
 import Projects from "./projects/page";
-import ProjectsCarousel from "./projects/projectUpate"
+import ProjectsCarousel from "./projects/projectUpate2"
 import Contact from "./contact/page";
 
 

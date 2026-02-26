@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useTransform } from "motion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const skillCards = [
   {
@@ -248,26 +248,34 @@ export default function SkillFloatingVersion() {
         </div>
       </motion.div>
 
-      {/* Floating Particles */}
-      {[...Array(20)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-2 h-2 bg-white rounded-full opacity-30"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -30, 0],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 3 + Math.random() * 2,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-          }}
-        />
-      ))}
+      {/* Floating Particles - 고정 위치로 변경 */}
+{[
+  { left: 10, top: 20 }, { left: 25, top: 60 }, { left: 40, top: 15 },
+  { left: 55, top: 75 }, { left: 70, top: 35 }, { left: 85, top: 55 },
+  { left: 15, top: 80 }, { left: 30, top: 45 }, { left: 50, top: 90 },
+  { left: 65, top: 25 }, { left: 80, top: 70 }, { left: 20, top: 50 },
+  { left: 45, top: 30 }, { left: 60, top: 65 }, { left: 75, top: 10 },
+  { left: 90, top: 85 }, { left: 35, top: 40 }, { left: 12, top: 95 },
+  { left: 68, top: 5 }, { left: 52, top: 78 },
+].map((pos, i) => (
+  <motion.div
+    key={i}
+    className="absolute w-2 h-2 bg-white rounded-full opacity-30"
+    style={{
+      left: `${pos.left}%`,
+      top: `${pos.top}%`,
+    }}
+    animate={{
+      y: [0, -30, 0],
+      opacity: [0.3, 0.6, 0.3],
+    }}
+    transition={{
+      duration: 3 + (i % 3),      // Math.random() 제거
+      repeat: Infinity,
+      delay: (i % 5) * 0.4,       // Math.random() 제거
+    }}
+  />
+))}
     </div>
   );
 }

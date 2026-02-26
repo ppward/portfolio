@@ -1,175 +1,280 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useMotionValue, useTransform } from "motion/react";
 import { useState } from "react";
 
-const skillCategories = [
+const skillCards = [
   {
-    category: "Frontend",
-    color: "from-blue-500 to-cyan-500",
+    category: "Frontend Development",
+    icon: "🎨",
+    gradient: "from-blue-500 via-cyan-500 to-teal-500",
     skills: [
-      { name: "React", level: 90, projects: 8 },
-      { name: "Next.js", level: 85, projects: 6 },
-      { name: "TypeScript", level: 80, projects: 10 },
-      { name: "Tailwind CSS", level: 90, projects: 12 },
-      { name: "Vue.js", level: 70, projects: 4 },
-    ]
+      { name: "React", proficiency: 90 },
+      { name: "Next.js", proficiency: 85 },
+      { name: "TypeScript", proficiency: 80 },
+      { name: "Vue.js", proficiency: 70 },
+      { name: "Tailwind CSS", proficiency: 90 },
+    ],
+    position: { left: '20%', top: '20%' }  // 왼쪽 위
   },
   {
-    category: "Backend",
-    color: "from-green-500 to-emerald-500",
+    category: "Backend Development",
+    icon: "⚙️",
+    gradient: "from-green-500 via-emerald-500 to-lime-500",
     skills: [
-      { name: "Node.js", level: 75, projects: 7 },
-      { name: "Express", level: 80, projects: 6 },
-      { name: "Spring Boot", level: 60, projects: 3 },
-      { name: "Django", level: 55, projects: 2 },
-      { name: "MongoDB", level: 70, projects: 5 },
-    ]
+      { name: "Node.js", proficiency: 75 },
+      { name: "Express", proficiency: 80 },
+      { name: "Spring Boot", proficiency: 60 },
+      { name: "Django", proficiency: 55 },
+      { name: "GraphQL", proficiency: 65 },
+    ],
+    position: { left: '70%', top: '20%' }  // 오른쪽 위
   },
   {
-    category: "DevOps",
-    color: "from-purple-500 to-pink-500",
+    category: "Database & Storage",
+    icon: "💾",
+    gradient: "from-purple-500 via-violet-500 to-indigo-500",
     skills: [
-      { name: "Docker", level: 75, projects: 5 },
-      { name: "AWS", level: 65, projects: 4 },
-      { name: "CI/CD", level: 70, projects: 6 },
-      { name: "Git", level: 90, projects: 15 },
-      { name: "Nginx", level: 60, projects: 3 },
-    ]
+      { name: "MongoDB", proficiency: 70 },
+      { name: "PostgreSQL", proficiency: 65 },
+      { name: "MySQL", proficiency: 70 },
+      { name: "Redis", proficiency: 60 },
+      { name: "Firebase", proficiency: 75 },
+    ],
+    position: { left: '20%', top: '70%' }  // 왼쪽 아래
+  },
+  {
+    category: "DevOps & Tools",
+    icon: "🚀",
+    gradient: "from-orange-500 via-red-500 to-pink-500",
+    skills: [
+      { name: "Docker", proficiency: 75 },
+      { name: "AWS", proficiency: 65 },
+      { name: "CI/CD", proficiency: 70 },
+      { name: "Git", proficiency: 90 },
+      { name: "Nginx", proficiency: 60 },
+    ],
+    position: { left: '70%', top: '70%' }  // 오른쪽 아래
+  },
+  {
+    category: "UI/UX & Design",
+    icon: "✨",
+    gradient: "from-pink-500 via-rose-500 to-red-500",
+    skills: [
+      { name: "Figma", proficiency: 80 },
+      { name: "Responsive Design", proficiency: 90 },
+      { name: "Animation", proficiency: 75 },
+      { name: "Accessibility", proficiency: 70 },
+      { name: "User Research", proficiency: 65 },
+    ],
+    position: { left: '45%', top: '45%' }  // 중앙
   }
 ];
 
-export default function SkillGridVersion() {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+function Card({ card, index }: { card: typeof skillCards[0], index: number }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const rotateX = useTransform(y, [-100, 100], [10, -10]);
+  const rotateY = useTransform(x, [-100, 100], [-10, 10]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 p-8">
-      {/* Hero Section */}
-      <div className="max-w-7xl mx-auto mb-16 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+    
+    <motion.div
+      className="absolute transform -translate-x-1/2 -translate-y-1/2"
+      style={{
+        left: card.position.left,
+        top: card.position.top,
+      }}
+      initial={{ opacity: 0, scale: 0, rotateY: -180 }}
+      animate={{ 
+        opacity: 1, 
+        scale: 1, 
+        rotateY: 0,
+        y: isHovered ? 0 : [0, -15, 0],  // 부유 애니메이션
+      }}
+      transition={{ 
+        duration: 0.8, 
+        delay: index * 0.2,
+        type: "spring",
+        stiffness: 100,
+        y: {
+          duration: 3 + index * 0.5,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }
+      }}
+      whileHover={{ scale: 1.05, zIndex: 50, y: 0 }}
+    >
+      <motion.div
+        className="relative w-80 h-96 cursor-pointer"
+        style={{
+          rotateX: isHovered ? rotateX : 0,
+          rotateY: isHovered ? rotateY : 0,
+          transformStyle: "preserve-3d",
+        }}
+        onMouseMove={(e) => {
+          if (!isHovered) return;
+          const rect = e.currentTarget.getBoundingClientRect();
+          x.set(e.clientX - rect.left - rect.width / 2);
+          y.set(e.clientY - rect.top - rect.height / 2);
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => {
+          setIsHovered(false);
+          x.set(0);
+          y.set(0);
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      >
+        {/* Card */}
+        <div 
+          className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${card.gradient} p-1`}
+          style={{ transform: "translateZ(50px)" }}
         >
-          <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full mx-auto mb-6" />
-          <h1 className="text-6xl font-bold text-white mb-4">
-            Full Stack Developer
-          </h1>
-          <p className="text-2xl text-gray-300">
-            React · Node.js · TypeScript · AWS
-          </p>
-        </motion.div>
-      </div>
+          <div className="w-full h-full bg-gray-900 rounded-3xl p-2 flex flex-col">
+            {/* Icon and Title */}
+            <div className="text-center mb-6">
+              <motion.div 
+                className="text-7xl mb-1"
+                animate={isHovered ? { 
+                  scale: [1, 1.2, 1],
+                  rotate: [0, 10, -10, 0]
+                } : {}}
+                transition={{ duration: 0.5 }}
+              >
+                {card.icon}
+              </motion.div>
+              <h3 className="text-2xl font-bold text-white">
+                {card.category}
+              </h3>
+            </div>
 
-      {/* Skills Grid */}
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIdx) => (
-            <motion.div
-              key={category.category}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: categoryIdx * 0.2 }}
-            >
-              {/* Category Header */}
-              <div className={`bg-gradient-to-r ${category.color} rounded-t-2xl p-6`}>
-                <h2 className="text-3xl font-bold text-white text-center">
-                  {category.category}
-                </h2>
+            {/* Skills List */}
+            <div className="space-y-3 flex-1">
+              {card.skills.map((skill, skillIdx) => (
+                <motion.div
+                  key={skill.name}
+                  className="relative"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.2 + skillIdx * 0.05 }}
+                >
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-white font-medium">{skill.name}</span>
+                    <span className="text-gray-400 text-sm">{skill.proficiency}%</span>
+                  </div>
+                  <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                    <motion.div
+                      className={`h-full bg-gradient-to-r ${card.gradient}`}
+                      initial={{ width: 0 }}
+                      animate={{ width: `${skill.proficiency}%` }}
+                      transition={{ 
+                        duration: 1, 
+                        delay: index * 0.2 + skillIdx * 0.05 + 0.3 
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Average Score */}
+            <div className="mt-4 text-center pt-4 border-t border-white/10">
+              <div className="text-3xl font-bold text-black">
+                {Math.round(card.skills.reduce((acc, s) => acc + s.proficiency, 0) / card.skills.length)}%
               </div>
-
-              {/* Skills List */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-b-2xl p-6 space-y-4">
-                {category.skills.map((skill, skillIdx) => (
-                  <motion.div
-                    key={skill.name}
-                    className="relative"
-                    onHoverStart={() => setHoveredSkill(skill.name)}
-                    onHoverEnd={() => setHoveredSkill(null)}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: categoryIdx * 0.2 + skillIdx * 0.1 }}
-                  >
-                    {/* Skill Name */}
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-white font-semibold text-lg">
-                        {skill.name}
-                      </span>
-                      <span className="text-gray-400 text-sm">
-                        {skill.projects} projects
-                      </span>
-                    </div>
-
-                    {/* Progress Bar */}
-                    <div className="relative h-3 bg-gray-700 rounded-full overflow-hidden">
-                      <motion.div
-                        className={`h-full bg-gradient-to-r ${category.color}`}
-                        initial={{ width: 0 }}
-                        animate={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: categoryIdx * 0.2 + skillIdx * 0.1 + 0.3 }}
-                      />
-                      
-                      {/* Percentage on hover */}
-                      {hoveredSkill === skill.name && (
-                        <motion.div
-                          className="absolute right-2 top-0 bottom-0 flex items-center"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                        >
-                          <span className="text-white text-xs font-bold">
-                            {skill.level}%
-                          </span>
-                        </motion.div>
-                      )}
-                    </div>
-
-                    {/* Hover Card */}
-                    {hoveredSkill === skill.name && (
-                      <motion.div
-                        className="absolute z-10 left-0 right-0 top-full mt-2 bg-gray-800 rounded-lg p-4 shadow-2xl"
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                      >
-                        <p className="text-gray-300 text-sm">
-                          사용한 프로젝트: <span className="text-white font-bold">{skill.projects}개</span>
-                        </p>
-                        <p className="text-gray-300 text-sm">
-                          숙련도: <span className="text-white font-bold">{skill.level}%</span>
-                        </p>
-                      </motion.div>
-                    )}
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+              <div className="text-sm text-gray-400">평균 숙련도</div>
+            </div>
+          </div>
         </div>
+
+        {/* Glow Effect */}
+        {isHovered && (
+          <motion.div
+            className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${card.gradient} blur-2xl opacity-50`}
+            style={{ transform: "translateZ(-20px)" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+          />
+        )}
+      </motion.div>
+    </motion.div>
+    
+  );
+}
+
+export default function SkillFloatingVersion() {
+  return (
+    <div className="w-full min-h-screen flex items-center justify-center relative">
+
+      {/* Title */}
+      <motion.div
+        className="absolute top-20 left-[45%] transform -translate-x-1/2 text-center z-10"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        <h1 className="text-7xl font-bold  mb-4">
+          Skill Universe
+        </h1>
+        <p className="text-2xl text-gray-400">
+          마우스를 올려 카드를 탐험하세요
+        </p>
+      </motion.div>
+
+      {/* Floating Cards Container */}
+      <div className="absolute inset-0" style={{ perspective: "1000px" }}>
+        {skillCards.map((card, index) => (
+          <Card key={card.category} card={card} index={index} />
+        ))}
       </div>
 
-      {/* Summary Stats */}
-      <div className="max-w-7xl mx-auto mt-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {[
-            { label: "총 프로젝트", value: "15+", icon: "📁" },
-            { label: "사용 기술", value: "15+", icon: "🛠️" },
-            { label: "경력", value: "3년", icon: "📅" },
-            { label: "GitHub Repos", value: "20+", icon: "⭐" }
-          ].map((stat, idx) => (
-            <motion.div
-              key={stat.label}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1 + idx * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="text-4xl mb-2">{stat.icon}</div>
-              <div className="text-4xl font-bold text-white mb-2">{stat.value}</div>
-              <div className="text-gray-400">{stat.label}</div>
-            </motion.div>
-          ))}
+      {/* Center Info */}
+      <motion.div
+        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-center z-10"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5 }}
+      >
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-8 py-6">
+          <div className="text-5xl font-bold text-black mb-2">
+            5개 영역
+          </div>
+          <div className="text-gray-400">
+            다양한 기술 스택을 보유한 풀스택 개발자
+          </div>
         </div>
-      </div>
+      </motion.div>
+
+      {/* Floating Particles */}
+      {[
+        { left: 10, top: 20 }, { left: 25, top: 60 }, { left: 40, top: 15 },
+        { left: 55, top: 75 }, { left: 70, top: 35 }, { left: 85, top: 55 },
+        { left: 15, top: 80 }, { left: 30, top: 45 }, { left: 50, top: 90 },
+        { left: 65, top: 25 }, { left: 80, top: 70 }, { left: 20, top: 50 },
+        { left: 45, top: 30 }, { left: 60, top: 65 }, { left: 75, top: 10 },
+        { left: 90, top: 85 }, { left: 35, top: 40 }, { left: 12, top: 95 },
+        { left: 68, top: 5 }, { left: 52, top: 78 },
+      ].map((pos, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-2 h-2 bg-white rounded-full opacity-30"
+          style={{
+            left: `${pos.left}%`,
+            top: `${pos.top}%`,
+          }}
+          animate={{
+            y: [0, -30, 0],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{
+            duration: 3 + (i % 3),
+            repeat: Infinity,
+            delay: (i % 5) * 0.4,
+          }}
+        />
+      ))}
     </div>
   );
 }

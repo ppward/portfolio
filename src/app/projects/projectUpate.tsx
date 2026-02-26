@@ -1,170 +1,161 @@
 "use client";
 
-import {motion, animate} from "motion/react";
+import {motion} from "motion/react";
 import {useState} from "react";
 
 const items = [
   { 
     id: 1, 
-    color: '#FF6B6B', 
-    title: 'Project 1', 
-    description: '첫 번째 프로젝트',
+    title: '피치피치', 
+    image : "/assets/items/peachpeach.png",
+    description: '소셜 네트워킹 플랫폼',
     details: 'React와 TypeScript를 사용한 웹 애플리케이션',
     tech: ['React', 'TypeScript', 'Tailwind CSS']
   },
   { 
     id: 2, 
-    color: '#4ECDC4', 
-    title: 'Project 2', 
-    description: '두 번째 프로젝트',
+    title: 'Satellite-A', 
+    image : "/assets/items/satelliteA.png",
+    description: '위성 데이터 분석 시스템',
     details: 'Next.js 기반 풀스택 프로젝트',
     tech: ['Next.js', 'Node.js', 'MongoDB']
   },
   { 
     id: 3, 
-    color: '#45B7D1', 
-    title: 'Project 3', 
-    description: '세 번째 프로젝트',
+    title: 'Plantify',
+    image : "/assets/items/plantify.png",
+    description: '식물 관리 애플리케이션',
     details: '실시간 채팅 애플리케이션',
     tech: ['Socket.io', 'Express', 'Redis']
   },
   { 
     id: 4, 
-    color: '#FFA07A', 
-    title: 'Project 4', 
-    description: '네 번째 프로젝트',
+    title: 'OneT', 
+    image :"/assets/items/OneT.png",
+    description: '통합 티켓 플랫폼',
     details: 'E-commerce 플랫폼',
     tech: ['Vue.js', 'Django', 'PostgreSQL']
   },
   { 
     id: 5, 
-    color: '#98D8C8', 
-    title: 'Project 5', 
-    description: '다섯 번째 프로젝트',
+    title: 'MIML', 
+    image : "/assets/items/MIML.png",
+    description: 'AI 이미지 분석',
     details: 'AI 기반 이미지 분석 서비스',
     tech: ['Python', 'TensorFlow', 'FastAPI']
   },
 ];
 
-export default function ProjectsCarousel() {
+export default function ProjectV1_MinimalCard() {
     const [currentIndex, setCurrentIndex] = useState(0);
-
-    const navigateToSlide = (index: number) => {
-        setCurrentIndex(index);
-    };
-
     const currentItem = items[currentIndex];
 
     return (
-        <div className="w-screen h-screen flex flex-col bg-gradient-to-br from-gray-900 to-gray-800 items-center justify-center overflow-hidden p-8 gap-8">
+        <div className="w-screen min-h-screen bg-white flex flex-col items-center justify-center p-8">
             
-            {/* 상단: 현재 아이템 + 설명란 */}
-            <div className="w-full max-w-7xl flex-1 flex gap-8">
+            {/* 메인 컨텐츠 */}
+            <div className="w-full max-w-6xl">
                 
-                {/* 왼쪽: 현재 프로젝트 카드 */}
+                {/* 상단: 프로젝트 카드 */}
                 <motion.div
                     key={currentIndex}
-                    className="flex-1 rounded-3xl shadow-2xl flex items-center justify-center overflow-hidden"
-                    style={{ backgroundColor: currentItem.color }}
-                    initial={{ opacity: 0, scale: 0.8, rotateY: -30 }}
-                    animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                    transition={{ 
-                        duration: 0.6,
-                        type: 'spring',
-                        stiffness: 200,
-                        damping: 20
-                    }}
+                    className="bg-white border-2 border-blue-900 rounded-3xl overflow-hidden shadow-xl mb-8"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
                 >
-                    <h1 className="text-white text-7xl font-bold">
-                        {currentItem.title}
-                    </h1>
-                </motion.div>
+                    <div className="flex">
+                        {/* 왼쪽: 이미지 */}
+                        <div className="w-2/5 bg-blue-900 flex items-center justify-center p-12">
+                            <motion.img 
+                                src={currentItem.image}
+                                alt={currentItem.title}
+                                className="w-full h-auto object-contain"
+                                initial={{ scale: 0.8, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{ delay: 0.2 }}
+                            />
+                        </div>
 
-                {/* 오른쪽: 설명란 */}
-                <motion.div 
-                    key={`desc-${currentIndex}`}
-                    className="flex-1 flex flex-col justify-center text-white"
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                    <h2 className="text-5xl font-bold mb-4">
-                        {currentItem.title}
-                    </h2>
-                    <p className="text-2xl text-gray-300 mb-6">
-                        {currentItem.description}
-                    </p>
-                    <p className="text-xl text-gray-400 mb-8 leading-relaxed">
-                        {currentItem.details}
-                    </p>
-                    
-                    {/* 기술 스택 */}
-                    <div className="mb-8">
-                        <h3 className="text-xl font-semibold mb-4">기술 스택</h3>
-                        <div className="flex flex-wrap gap-3">
-                            {currentItem.tech.map((tech, idx) => (
-                                <span 
-                                    key={idx}
-                                    className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium"
+                        {/* 오른쪽: 설명 */}
+                        <div className="w-3/5 p-12">
+                            {/* 번호 */}
+                            <div className="text-blue-600 font-bold text-sm mb-2">
+                                PROJECT {String(currentIndex + 1).padStart(2, '0')}
+                            </div>
+
+                            {/* 제목 */}
+                            <h2 className="text-5xl font-black text-blue-900 mb-4">
+                                {currentItem.title}
+                            </h2>
+
+                            {/* 구분선 */}
+                            <div className="w-20 h-1 bg-blue-600 mb-6" />
+
+                            {/* 설명 */}
+                            <p className="text-xl text-gray-700 mb-4">
+                                {currentItem.description}
+                            </p>
+                            <p className="text-gray-600 mb-8 leading-relaxed">
+                                {currentItem.details}
+                            </p>
+
+                            {/* 기술 스택 */}
+                            <div className="mb-8">
+                                <h3 className="text-sm font-bold text-blue-900 mb-3">TECH STACK</h3>
+                                <div className="flex flex-wrap gap-2">
+                                    {currentItem.tech.map((tech, idx) => (
+                                        <span 
+                                            key={idx}
+                                            className="px-4 py-2 bg-blue-900 text-white text-sm rounded-lg font-medium"
+                                        >
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* 네비게이션 */}
+                            <div className="flex gap-3">
+                                <button
+                                    onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))}
+                                    disabled={currentIndex === 0}
+                                    className="w-12 h-12 border-2 border-blue-900 rounded-full flex items-center justify-center text-blue-900 disabled:opacity-20 disabled:cursor-not-allowed hover:bg-blue-900 hover:text-white transition-all"
                                 >
-                                    {tech}
-                                </span>
-                            ))}
+                                    ←
+                                </button>
+                                <button
+                                    onClick={() => setCurrentIndex(Math.min(items.length - 1, currentIndex + 1))}
+                                    disabled={currentIndex === items.length - 1}
+                                    className="w-12 h-12 border-2 border-blue-900 rounded-full flex items-center justify-center text-blue-900 disabled:opacity-20 disabled:cursor-not-allowed hover:bg-blue-900 hover:text-white transition-all"
+                                >
+                                    →
+                                </button>
+                            </div>
                         </div>
                     </div>
-
-                    {/* 네비게이션 버튼 */}
-                    <div className="flex gap-4">
-                        <button
-                            onClick={() => navigateToSlide(Math.max(0, currentIndex - 1))}
-                            disabled={currentIndex === 0}
-                            className="px-8 py-4 bg-white/20 backdrop-blur-sm rounded-xl text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/30 transition-all hover:scale-105 active:scale-95 font-semibold"
-                        >
-                            ← 이전
-                        </button>
-                        <button
-                            onClick={() => navigateToSlide(Math.min(items.length - 1, currentIndex + 1))}
-                            disabled={currentIndex === items.length - 1}
-                            className="px-8 py-4 bg-white/20 backdrop-blur-sm rounded-xl text-white disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/30 transition-all hover:scale-105 active:scale-95 font-semibold"
-                        >
-                            다음 →
-                        </button>
-                    </div>
                 </motion.div>
-            </div>
 
-            {/* 하단: 나머지 아이템들 썸네일 */}
-            <div className="w-full max-w-7xl">
-                <div className="flex gap-4 justify-center items-center">
+                {/* 하단: 썸네일 네비게이션 */}
+                <div className="flex gap-4 justify-center">
                     {items.map((item, index) => (
-                        <motion.div
+                        <motion.button
                             key={item.id}
-                            className={`rounded-xl shadow-lg cursor-pointer overflow-hidden transition-all ${
+                            onClick={() => setCurrentIndex(index)}
+                            className={`relative overflow-hidden rounded-xl transition-all ${
                                 index === currentIndex 
-                                    ? 'ring-4 ring-white' 
-                                    : 'hover:scale-110'
+                                    ? 'w-32 h-32 ring-4 ring-blue-600' 
+                                    : 'w-24 h-24 opacity-50 hover:opacity-100'
                             }`}
-                            style={{ 
-                                backgroundColor: item.color,
-                                width: index === currentIndex ? '200px' : '150px',
-                                height: index === currentIndex ? '150px' : '120px',
-                            }}
-                            onClick={() => navigateToSlide(index)}
-                            whileHover={{ y: -10 }}
-                            animate={{
-                                scale: index === currentIndex ? 1.1 : 1,
-                                opacity: index === currentIndex ? 1 : 0.7,
-                            }}
-                            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                         >
-                            <div className="w-full h-full flex items-center justify-center">
-                                <h3 className={`text-white font-bold ${
-                                    index === currentIndex ? 'text-2xl' : 'text-lg'
-                                }`}>
-                                    {item.title}
-                                </h3>
+                            <div className="w-full h-full bg-blue-900 flex items-center justify-center">
+                                <span className="text-white font-bold text-sm">
+                                    {String(index + 1).padStart(2, '0')}
+                                </span>
                             </div>
-                        </motion.div>
+                        </motion.button>
                     ))}
                 </div>
             </div>
