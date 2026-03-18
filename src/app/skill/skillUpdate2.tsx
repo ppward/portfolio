@@ -138,7 +138,7 @@ export default function SkillLayer() {
   const selectedQuadrant = quadrants.find(q => q.type === selected);
 
   return (
-    <div className="relative mt-10 z-10 w-full h-full flex flex-col gap-4">
+    <div className="relative mt-10 z-10 w-[98%] h-full flex flex-col gap-4">
       
       {/* 중앙 로고 - 선택 없을 때만 */}
       <AnimatePresence>
@@ -147,7 +147,6 @@ export default function SkillLayer() {
             className="absolute top-[calc(50%-50px)] left-[calc(50%-50px)] transform -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] bg-white rounded-full flex items-center justify-center shadow-2xl z-50"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
-            exit={{ scale: 0, rotate: 180, opacity: 0 }}
             transition={{ type: "spring", stiffness: 200 }}
           >
           </motion.div>
@@ -158,24 +157,14 @@ export default function SkillLayer() {
       <AnimatePresence>
         {selected && selectedQuadrant && (
           <motion.div
-            className={`${selectedQuadrant.bg} rounded-xl shadow-2xl p-6 flex-shrink-0`}
+            className={`${selectedQuadrant.bg} rounded-xl shadow-2xl p-6 flex-shrink-0 cursor-pointer`}
             style={{ height: 'calc(50% - 8px)' }}
             initial={{ opacity: 0, height: 0, marginBottom: 0 }}
             animate={{ opacity: 1, height: 'calc(50% - 8px)', marginBottom: 16 }}
             exit={{ opacity: 0, height: 0, marginBottom: 0 }}
             transition={{ type: "spring", stiffness: 200, damping: 25 }}
+            onClick={() => setSelected(null)} 
           >
-            {/* 닫기 버튼 */}
-            <button
-              className="absolute top-10 right-10 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors z-50"
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelected(null);
-              }}
-            >
-              <span className="text-blue-900 text-xl font-bold">✕</span>
-            </button>
-
             {/* 제목 */}
             <h2 className={`font-paperlogy text-white font-black text-4xl mb-6 ${selectedQuadrant.textAlign}`}>
               {selectedQuadrant.title}

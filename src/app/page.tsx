@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
     <ParallaxProvider >
-    <div className="sm:min-w-[700px] relative w-full h-screen">
+    <div className="sm:min-w-[700px] relative w-full h-screen overflow-x-hidden">
     <a onClick={handleScrollToTop} className="fixed block lg:w-24 lg:h-24 md:w-20 md:h-20 sm:w-12 sm:h-12 max-sm:w-12 max-sm:h-12 top-[20px] left-[20px] z-40 cursor-pointer ">
       <motion.div
       initial={{opacity:0}}

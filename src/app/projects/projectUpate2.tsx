@@ -54,10 +54,7 @@ export default function ProjectGridGallery() {
     return (
         <div 
             className="w-screen min-h-screen flex items-center justify-center p-8 relative"
-            style={{
-                background: 'linear-gradient(to bottom right, #ffffff 0%, #f0f9ff 100%)',
-              
-            }}
+            
         >
 
 

@@ -1,11 +1,12 @@
 "use client"
 // import SkillLayer from "./skillLayer";
-import SkillLayer from "./skillUpdate2";
+import SkillLayer from "./test";
+// import SkillLayer from "./skillUpdate2";
 export default function Skill(){
     return(
-    <div className="relative w-full h-screen pl-10">
+    <div className="relative w-full min-h-screen pl-10">
         <div className="relative h-full">
-            <div className="flex w-full pl-20 items-center">
+            <div className="flex  pl-20 items-center">
             <h1
                 className="font-paperlogy lg:text-[110px] md:text-[80px] sm:text-6xl max-sm:text-6xl text-blue-600 font-black"
                 >Skill</h1>
