@@ -1,7 +1,6 @@
 "use client"
-import SkillLayer from "./skillLayer";
-import ResumeUdating1 from "../resumeMain/resumeU1";
-
+// import SkillLayer from "./skillLayer";
+import SkillLayer from "./skillUpdate2";
 export default function Skill(){
     return(
     <div className="relative w-full h-screen pl-10">
@@ -11,7 +10,7 @@ export default function Skill(){
                 className="font-paperlogy lg:text-[110px] md:text-[80px] sm:text-6xl max-sm:text-6xl text-blue-600 font-black"
                 >Skill</h1>
             </div>
-            <div className="relative flex flex-col w-full h-[80%]">
+            <div className="relative flex flex-col w-full h-full">
                <SkillLayer/>
             </div>
         </div>

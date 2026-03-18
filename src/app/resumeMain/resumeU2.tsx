@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { useRef } from "react";
 
 const timelineJourney = [
@@ -9,7 +9,6 @@ const timelineJourney = [
     title: "IoT 빅데이터 응용 교육과정 수료",
     skills: ["java", "hadoop", "spring"],
     description: "데이터 수집 및 처리 흐름 학습, 분산 처리 및 로그 데이터 분석 경험",
-   
   },
   {
     year: "2024",
@@ -31,33 +30,30 @@ const timelineJourney = [
   }
 ];
 
-export default function TimelineVersion() {
+export default function TimelineClean() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
 
   return (
-    <div ref={containerRef} className="h-full overflow-y-auto bg-white border border-gray-300 py-16 px-8 rounded-xl">
+    <div ref={containerRef} className="h-full overflow-y-auto bg-blue-900 py-16 px-8 rounded-xl"
+   >
       
       {/* Header */}
       <motion.div
         className="max-w-4xl mx-auto text-center mb-16"
-        initial={{ opacity: 0, y: -50 }}
+        initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        
-        <h1 className="font-paperlogy text-5xl font-black text-blue-600">끊임없이 배우고 성장하는 개발자</h1>
+        <h1 className="font-paperlogy text-5xl font-black text-white mb-4">
+          Learning Journey
+        </h1>
+        <p className="text-xl text-blue-100">끊임없이 배우고 성장하는 개발자</p>
       </motion.div>
 
       {/* Timeline */}
       <div className="max-w-5xl mx-auto relative">
         
         {/* Center Line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-[90%] bg-blue-600 opacity-30" />
-
-        
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-[92%] bg-white/50" />
 
         {/* Journey Items */}
         <div className="space-y-6 pb-12">
@@ -76,18 +72,18 @@ export default function TimelineVersion() {
                 {/* Content Card */}
                 <div className="flex-1">
                   <motion.div
-                    className="bg-blue-600 p-1 rounded-2xl shadow-xl"
-                    whileHover={{ scale: 1.03, rotate: isLeft ? 1 : -1 }}
+                    className="bg-white border-2 border-white rounded-2xl shadow-xl"
+                    whileHover={{ scale: 1.03, y: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <div className="bg-white rounded-2xl p-6 font-paperlogy">
                       {/* Year Badge */}
-                      <div className="inline-block bg-blue-600 px-5 py-2 rounded-full mb-3">
+                      <div className="inline-block bg-blue-900 px-5 py-2 rounded-full mb-3">
                         <span className="text-white font-bold text-xl">{item.year}</span>
                       </div>
 
                       {/* Title */}
-                      <h3 className=" text-2xl font-extrabold text-blue-900 mb-2">
+                      <h3 className="text-2xl font-extrabold text-blue-900 mb-2">
                         {item.title}
                       </h3>
 
@@ -101,12 +97,12 @@ export default function TimelineVersion() {
                         {item.skills.map((skill, skillIdx) => (
                           <motion.span
                             key={skill}
-                            className="px-3 py-1 bg-blue-50 border border-blue-600 rounded-lg text-blue-900 text-xs font-medium"
+                            className="px-3 py-1 bg-blue-900 text-white rounded-lg text-xs font-bold"
                             initial={{ opacity: 0, scale: 0 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 + skillIdx * 0.05 }}
-                            whileHover={{ scale: 1.1, backgroundColor: '#DBEAFE' }}
+                            whileHover={{ scale: 1.1, backgroundColor: '#1e3a8a' }}
                           >
                             {skill}
                           </motion.span>
@@ -116,11 +112,11 @@ export default function TimelineVersion() {
                   </motion.div>
                 </div>
 
-                {/* Center Icon */}
+                {/* Center Dot */}
                 <motion.div
                   className="relative z-10"
-                  initial={{ scale: 0, rotate: -180 }}
-                  whileInView={{ scale: 1, rotate: 0 }}
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ 
                     type: "spring", 
@@ -128,12 +124,10 @@ export default function TimelineVersion() {
                     delay: index * 0.1 
                   }}
                 >
-                  <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-3xl shadow-xl">
-                    
-                  </div>
+                  <div className="w-8 h-8 rounded-full bg-white shadow-xl" />
                 </motion.div>
 
-                {/* Empty Space (for alternating layout) */}
+                {/* Empty Space */}
                 <div className="flex-1" />
               </motion.div>
             );
@@ -148,34 +142,14 @@ export default function TimelineVersion() {
           viewport={{ once: true }}
         >
           <div className="inline-block relative">
-            <motion.div
-              className="w-24 h-24 rounded-full bg-blue-600 border-4 border-white flex items-center justify-center text-5xl shadow-2xl"
-              animate={{
-                scale: [1, 1.1, 1],
-                rotate: [0, 360],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                repeatType: "reverse"
-              }}
+            <div
+              className="w-20 h-20 rounded-full bg-white flex items-center justify-center text-4xl shadow-xl"
+            
             >
               ✨
-            </motion.div>
-            <motion.div
-              className="absolute -inset-4 rounded-full bg-blue-600 opacity-20 blur-xl"
-              animate={{
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "reverse"
-              }}
-            />
+            </div>
           </div>
           
-       
         </motion.div>
       </div>
     </div>
