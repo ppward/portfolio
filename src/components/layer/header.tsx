@@ -60,7 +60,7 @@ export default function Header({sectionRefs}:HeaderProps){
                   {/*sub Title 나중에 Link 태그로 변경하기*/}
                   <div className="flex flex-col justify-center items-center w-full h-full">
                       <nav className="w-[calc(95%)] md:pl-28 sm:pl-10 max-sm:pl-10">
-                      <NavList sectionRefs={sectionRefs}/>
+                        <NavList sectionRefs={sectionRefs}/>
                       </nav>
                   </div>
                   {/*title message*/}

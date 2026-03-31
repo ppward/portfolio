@@ -1,8 +1,7 @@
 "use client"
 
 import ResumeLayer1 from "./resumeL1";
-import ResumeLayer2 from "./resumeL2";
-import TimelineVersion from "./resumeU2";
+import TimelineResume from "./resumeL2";
 
 
 export default function ResumeMain(){     
@@ -27,7 +26,7 @@ export default function ResumeMain(){
         {/*2번째 레이어*/}
         <div className="sticky top-[8%] w-full  flex justify-center text-white  font-semibold z-10 -mt-10">
           <div className="flex flex-col w-[90%] h-[95%] bg-blue-900 rounded-xl">
-            <TimelineVersion/>
+            <TimelineResume/>
           </div>
         </div>
       </div>

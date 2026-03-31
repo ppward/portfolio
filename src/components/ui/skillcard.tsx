@@ -11,11 +11,11 @@ interface skillProps{
 export default function SkillCard(skillInfo:skillProps){
     // const baseStyle = "text-white text-center font-black";
     // const combineStyle = classNames(baseStyle, skillInfo.className);
-    const customList:string[] = ["SpringBoot ⭐"];
+    const customList:string[] = ["SpringBoot"];
     if (customList.includes(skillInfo.name)) {
         // console.log(`${target}은 배열에 포함되어 있습니다.`);
         return(
-            <div className="flex flex-col justify-center items-center w-full h-[80px] rounded-md  ">
+            <div className="flex flex-col justify-center items-center w-full h-[80px] m-2 rounded-md  ">
                 <motion.div className="flex lg:w-[50px] lg:h-[50px] md:w-[45px] md:h-[45px] sm:w-[33px] sm:h-[33px]  max-sm:w-[33px] max-sm:h-[33px] bg-white justify-center items-center lg:rounded-xl md:rounded-lg sm:rounded-lg max-sm:rounded-lg"
                 whileHover={{scale:1.2}}
                 >
